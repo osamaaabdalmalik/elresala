@@ -1,10 +1,10 @@
 import 'package:elresala/features/quran/domain/entities/ayah_entity.dart';
 
-class Sora {
+class Surah {
   final String name;
   final List<Ayah> ayat;
 
-  const Sora({
+  const Surah({
     required this.name,
     required this.ayat,
   });
