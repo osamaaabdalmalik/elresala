@@ -1,5 +1,5 @@
 import 'package:elresala/core/utils/components/appbar/build_sliver_appbar.dart';
-import 'package:elresala/features/quran/presentation/screens/widgets/soura_select_sliver_context.dart';
+import 'package:elresala/features/quran/presentation/widgets/soura_select_sliver_context.dart';
 import 'package:flutter/material.dart';
 
 class SuoraSelectView extends StatelessWidget {

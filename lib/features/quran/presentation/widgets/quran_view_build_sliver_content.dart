@@ -1,7 +1,7 @@
-import 'package:elresala/features/quran/presentation/screens/widgets/aya_arabic_container.dart';
-import 'package:elresala/features/quran/presentation/screens/widgets/aya_language_container.dart';
-import 'package:elresala/features/quran/presentation/screens/widgets/basmala_image.dart';
-import 'package:elresala/features/quran/presentation/screens/widgets/quran_page_widget.dart';
+import 'package:elresala/features/quran/presentation/widgets/aya_arabic_container.dart';
+import 'package:elresala/features/quran/presentation/widgets/aya_language_container.dart';
+import 'package:elresala/features/quran/presentation/widgets/basmala_image.dart';
+import 'package:elresala/features/quran/presentation/widgets/quran_page_widget.dart';
 import 'package:flutter/material.dart';
 
 

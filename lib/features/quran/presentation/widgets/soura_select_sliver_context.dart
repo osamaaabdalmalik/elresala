@@ -1,5 +1,5 @@
-import 'package:elresala/features/quran/presentation/screens/widgets/opacity_container_text.dart';
-import 'package:elresala/features/quran/presentation/screens/widgets/soura_item.dart';
+import 'package:elresala/features/quran/presentation/widgets/opacity_container_text.dart';
+import 'package:elresala/features/quran/presentation/widgets/soura_item.dart';
 import 'package:flutter/material.dart';
 
 
