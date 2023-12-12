@@ -30,4 +30,10 @@ class AppColors {
   static const Color amber = Colors.amber;
   static const Color gray = Colors.grey;
   static const Color grayAccent = Color(0xFFE1DAD6);
+
+  static const Color kPrimaryColor = Color(0xff2A2C41);
+  static const Color kGreenColor = Color(0xff8DA05E);
+  static const Color kGoldenColor = Color(0xffFCC050);
+  static const Color kBlackColor = Color(0xff222222);
+  static const Color kWhiteColor = Color(0xffE9EDDF);
 }
