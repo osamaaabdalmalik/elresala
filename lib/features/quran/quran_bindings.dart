@@ -1,6 +1,7 @@
 import 'package:elresala/features/quran/data/data_sources/quran_remote_data_source.dart';
 import 'package:elresala/features/quran/data/repository/quran_repo_impl.dart';
 import 'package:elresala/features/quran/domain/repository/quran_repo.dart';
+import 'package:elresala/features/quran/presentation/controller/quran_controller.dart';
 import 'package:get/get.dart';
 
 class QuranBindings extends Bindings {
@@ -10,10 +11,13 @@ class QuranBindings extends Bindings {
       QuranRemoteDataSourceImpl(apiService: Get.find()),
     );
     Get.put<QuranRepo>(
-      QuranRepoImpl(quranRemoteDataSource: Get.find()),
+      QuranRepoImpl(
+        quranRemoteDataSource: Get.find(),
+        sharedPreferencesService: Get.find(),
+        fileService: Get.find(),
+      ),
     );
 
-//    Get.put(GetCategoriesAsPairUseCase(Get.find()));
-//    Get.put(MainController());
+    Get.put(QuranController());
   }
 }

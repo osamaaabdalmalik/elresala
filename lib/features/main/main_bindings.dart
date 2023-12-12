@@ -1,9 +1,9 @@
-import 'package:get/get.dart';
+import 'package:elresala/features/main/data/data_sources/main_local_data_source.dart';
 import 'package:elresala/features/main/data/data_sources/main_remote_data_source.dart';
 import 'package:elresala/features/main/data/repository/main_repo_impl.dart';
 import 'package:elresala/features/main/domain/repository/main_repo.dart';
-import 'package:elresala/features/main/domain/usecases/get_categories_as_pair_use_case.dart';
 import 'package:elresala/features/main/presentation/controller/main_controller.dart';
+import 'package:get/get.dart';
 
 class MainBindings extends Bindings {
   @override
@@ -11,11 +11,16 @@ class MainBindings extends Bindings {
     Get.put<MainRemoteDataSource>(
       MainRemoteDataSourceImpl(apiService: Get.find()),
     );
+    Get.put<MainLocalDataSource>(
+      MainLocalDataSourceImpl(pref: Get.find()),
+    );
     Get.put<MainRepo>(
-      MainRepoImpl(mainRemoteDataSource: Get.find()),
+      MainRepoImpl(
+        mainRemoteDataSource: Get.find(),
+        mainLocalDataSource: Get.find(),
+      ),
     );
 
-    Get.put(GetCategoriesAsPairUseCase(Get.find()));
     Get.put(MainController());
   }
 }

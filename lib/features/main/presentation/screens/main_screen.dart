@@ -8,12 +8,14 @@ class MainScreen extends GetView<MainController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "Main Screen",
-        style: TextStyle(
-          fontSize: 40,
-          color: AppColors.primary,
+    return Center(
+      child: GetBuilder<MainController>(
+        builder: (controller) => Text(
+          "percent: ${(controller.progress * 100).toStringAsFixed(0)} % from ${controller.downloadedFiles}/${controller.totalFiles} ",
+          style: const TextStyle(
+            fontSize: 25,
+            color: AppColors.primary,
+          ),
         ),
       ),
     );

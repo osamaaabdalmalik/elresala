@@ -1,4 +1,3 @@
-import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/features/quran/presentation/controller/quran_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,12 +7,22 @@ class QuranScreen extends GetView<QuranController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "Quran Screen",
-        style: TextStyle(
-          fontSize: 40,
-          color: AppColors.primary,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Quran Screen",
+        ),
+      ),
+      body: GetBuilder<QuranController>(
+        builder: (controller) => ListView.builder(
+          itemCount: controller.surahs.length,
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          itemBuilder: (context, index) => ListTile(
+            onTap: () {},
+            title: Text(
+              controller.surahs[index].name,
+            ),
+          ),
         ),
       ),
     );
