@@ -1,20 +1,19 @@
-import 'package:alresala/constants.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:elresala/core/constants/app_colors.dart';
 
 abstract class Styles {
   static const textStyleQuranPageNumber = TextStyle(
-              color: kPrimaryColor,
+              color: AppColors.kPrimaryColor,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             );
   static const textStyleAya = TextStyle(
-              color: kGoldenColor,
+              color: AppColors.kGoldenColor,
               fontSize: 18,
               fontWeight: FontWeight.bold,
             );
  static const textStyleAyaLanguage = TextStyle(
-              color: kBlackColor,
+              color: AppColors.kBlackColor,
               fontSize: 18,
               fontWeight: FontWeight.bold,
             );
