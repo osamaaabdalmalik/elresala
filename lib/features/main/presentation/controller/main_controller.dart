@@ -10,6 +10,11 @@ class MainController extends GetxController {
   void onInit() async {
     Get.find<Logger>().i("Start onInit MainController");
     super.onInit();
+    Get.find<Logger>().f("End onInit MainController");
+  }
+
+  Future<void> downloadFiles() async {
+    Get.find<Logger>().i("Start `downloadFiles` in |MainController|");
     DownloadFilesUseCase downloadFilesUseCase = DownloadFilesUseCase(Get.find());
     await downloadFilesUseCase(
       language: 'spanish',
@@ -23,6 +28,6 @@ class MainController extends GetxController {
         update();
       },
     );
-    Get.find<Logger>().f("End onInit MainController");
+    Get.find<Logger>().f("End `downloadFiles` in |MainController|");
   }
 }
