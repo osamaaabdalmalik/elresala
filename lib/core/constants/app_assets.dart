@@ -10,6 +10,7 @@ abstract class AppAssets {
 
   //
   static const String rootSVGIcon = "$rootSVG/icons";
+  static const String logo = "$rootSVGIcon/logo.svg";
   static const String profileDefault = "$rootSVG/profile_default.svg";
   static const String categoriesIconSvg = "$rootSVGIcon/categories.svg";
   static const String kBasmalaImage = '$rootImages/basmala.png';

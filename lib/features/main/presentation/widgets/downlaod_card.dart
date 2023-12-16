@@ -61,22 +61,25 @@ class _DownloadCardState extends State<DownloadCard> {
                       lineWidth: 5.0,
                       percent: widget.progress,
                       center: Text(
-                        "${(widget.progress * 10).toStringAsFixed(0)}%",
+                        "${(widget.progress * 100).toStringAsFixed(0)}%",
                         style: const TextStyle(
                           fontSize: 12,
                         ),
                       ),
-                      progressColor: AppColors.kGoldenColor,
-                      backgroundColor: AppColors.kPrimaryColor,
-                      animation: true,
                       footer: Padding(
                         padding: const EdgeInsets.only(top: 5),
                         child: Text("${widget.downloadedCount}/${widget.totalCount}"),
                       ),
+                      progressColor: AppColors.kGoldenColor,
+                      backgroundColor: AppColors.kPrimaryColor,
+                      animation: true,
+                      animateFromLastPercent: true,
+                      circularStrokeCap: CircularStrokeCap.round,
                     )
                   : IconButton(
                       onPressed: () {
                         isStartDownload = true;
+                        setState(() {});
                         widget.onDownloadTab();
                       },
                       icon: const Icon(

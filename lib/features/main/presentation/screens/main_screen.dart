@@ -33,7 +33,7 @@ class MainScreen extends GetView<MainController> {
                     color: AppColors.kGoldenColor,
                   ),
                 ),
-                SvgPicture.asset(AppAssets.image),
+                SvgPicture.asset(AppAssets.logo),
               ],
             ),
             const SizedBox(
