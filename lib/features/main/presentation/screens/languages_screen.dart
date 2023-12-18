@@ -1,13 +1,13 @@
 import 'package:elresala/core/constants/app_assets.dart';
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/features/main/presentation/controller/main_controller.dart';
-import 'package:elresala/features/main/presentation/widgets/home_card.dart';
+import 'package:elresala/features/main/presentation/widgets/downlaod_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class MainScreen extends GetView<MainController> {
-  const MainScreen({super.key});
+class LanguagesScreen extends GetView<MainController> {
+  const LanguagesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +19,14 @@ class MainScreen extends GetView<MainController> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: ListView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  "Home",
+                  "Languages",
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
@@ -35,20 +36,25 @@ class MainScreen extends GetView<MainController> {
                 SvgPicture.asset(AppAssets.logo),
               ],
             ),
-            GetBuilder<MainController>(
-              builder: (controller) => ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.symmetric(vertical: 30),
-                itemCount: controller.homeCardsData.length,
-                itemBuilder: (context, index) => HomeCard(
-                  homeCardData: controller.homeCardsData[index],
-                ),
-                separatorBuilder: (BuildContext context, int index) => const SizedBox(
-                  height: 15,
-                ),
-              ),
+            const SizedBox(
+              height: 30,
             ),
+            GetBuilder<MainController>(
+              builder: (controller) => ListView(
+                shrinkWrap: true,
+                children: [
+                  DownloadCard(
+                    title: "Spanish",
+                    progress: controller.progress,
+                    downloadedCount: controller.downloadedFiles,
+                    totalCount: controller.totalFiles,
+                    onDownloadTab: () async {
+                      await controller.downloadFiles();
+                    },
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
