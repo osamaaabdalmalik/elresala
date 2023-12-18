@@ -11,6 +11,12 @@ abstract class AppAssets {
   //
   static const String rootSVGIcon = "$rootSVG/icons";
   static const String logo = "$rootSVGIcon/logo.svg";
+  static const String quran = "$rootSVGIcon/quran.svg";
+  static const String hadith = "$rootSVGIcon/hadith.svg";
+  static const String prayer = "$rootSVGIcon/prayer.svg";
+  static const String azkar = "$rootSVGIcon/azkar.svg";
+  static const String dua = "$rootSVGIcon/dua.svg";
+  static const String calender = "$rootSVGIcon/calender.svg";
   static const String profileDefault = "$rootSVG/profile_default.svg";
   static const String categoriesIconSvg = "$rootSVGIcon/categories.svg";
   static const String kBasmalaImage = '$rootImages/basmala.png';
