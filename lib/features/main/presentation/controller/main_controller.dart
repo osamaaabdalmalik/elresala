@@ -14,7 +14,7 @@ class MainController extends GetxController {
       title: "Quran",
       description: "Learn , Read all the Quran",
       iconPath: AppAssets.quran,
-      targetScreen: AppPagesRoutes.mainScreen,
+      targetScreen: AppPagesRoutes.quranScreen,
     ),
     HomeCardData(
       title: "Calender",
