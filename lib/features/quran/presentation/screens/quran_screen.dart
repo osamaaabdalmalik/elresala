@@ -1,4 +1,6 @@
+import 'package:elresala/core/utils/components/appbar/build_sliver_appbar.dart';
 import 'package:elresala/features/quran/presentation/controller/quran_controller.dart';
+import 'package:elresala/features/quran/presentation/widgets/soura_select_sliver_context.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,23 +9,12 @@ class QuranScreen extends GetView<QuranController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Quran Screen",
-        ),
-      ),
-      body: GetBuilder<QuranController>(
-        builder: (controller) => ListView.builder(
-          itemCount: controller.surahs.length,
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          itemBuilder: (context, index) => ListTile(
-            onTap: () {},
-            title: Text(
-              controller.surahs[index].name,
-            ),
-          ),
-        ),
+    return const Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBarWidget(isSearch: true),
+          SurahSelectSliver(),
+        ],
       ),
     );
   }

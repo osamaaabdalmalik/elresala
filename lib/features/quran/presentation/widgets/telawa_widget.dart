@@ -1,10 +1,9 @@
-import 'package:elresala/features/quran/presentation/screens/soura_select_view.dart';
-import 'package:elresala/features/quran/presentation/screens/telawa_screen.dart';
+import 'package:elresala/core/constants/app_assets.dart';
+import 'package:elresala/core/constants/app_colors.dart';
+import 'package:elresala/core/constants/app_pages_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:elresala/core/constants/app_colors.dart';
-import 'package:elresala/core/constants/app_assets.dart';
 
 class TelawaWidget extends StatelessWidget {
   const TelawaWidget({super.key});
@@ -29,24 +28,25 @@ class TelawaWidget extends StatelessWidget {
         child: Column(children: [
           Row(
             children: [
-              GestureDetector(
-                  onTap: _navigateToTelawaScreen,
-                  child: const Text('El Sudis')),
-              const SizedBox(
-                width: 8,
+              InkWell(
+                onTap: () => Get.toNamed(AppPagesRoutes.telawaScreen),
+                child: Row(
+                  children: [
+                    const Text('El Sudis'),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Image.asset(AppAssets.kSoudisIcon),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    SvgPicture.asset(AppAssets.kVectorUpIcon),
+                  ],
+                ),
               ),
-              GestureDetector(
-                  onTap: _navigateToTelawaScreen,
-                  child: Image.asset(AppAssets.kSoudisIcon)),
-              const SizedBox(
-                width: 12,
-              ),
-              GestureDetector(
-                  onTap: _navigateToSuoraSelect,
-                  child: SvgPicture.asset(AppAssets.kVectorUpIcon)),
               const Spacer(),
               SvgPicture.asset(
-               AppAssets. kCopyIcon,
+                AppAssets.kCopyIcon,
                 color: AppColors.kPrimaryColor,
               ),
               const SizedBox(
@@ -98,13 +98,5 @@ class TelawaWidget extends StatelessWidget {
         ]),
       ),
     );
-  }
-
-  void _navigateToSuoraSelect() {
-    Get.to(const SuoraSelectView());
-  }
-
-  void _navigateToTelawaScreen() {
-    Get.to(const TelawaScreen());
   }
 }

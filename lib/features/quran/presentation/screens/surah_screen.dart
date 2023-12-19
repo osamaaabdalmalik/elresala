@@ -5,8 +5,8 @@ import 'package:elresala/features/quran/presentation/widgets/telawa_widget.dart'
 import 'package:flutter/material.dart';
 import 'package:elresala/core/constants/app_colors.dart';
 
-class QuranView extends StatelessWidget {
-  const QuranView({Key? key}) : super(key: key);
+class SurahScreen extends StatelessWidget {
+  const SurahScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

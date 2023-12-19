@@ -1,28 +1,34 @@
+import 'package:elresala/core/constants/app_assets.dart';
+import 'package:elresala/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:elresala/core/constants/app_colors.dart';
-import 'package:elresala/core/constants/app_assets.dart';
+
 class SliverAppBarWidget extends StatelessWidget {
-  const SliverAppBarWidget({
-    super.key,
-    this.isSearch,
-    this.backgroundColor =AppColors.kPrimaryColor,
-    this.iconColor = AppColors.kWhiteColor,
-  });
   final bool? isSearch;
   final Color backgroundColor;
   final Color iconColor;
+
+  const SliverAppBarWidget({
+    super.key,
+    this.isSearch,
+    this.backgroundColor = AppColors.kPrimaryColor,
+    this.iconColor = AppColors.kWhiteColor,
+  });
+
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       automaticallyImplyLeading: false,
       backgroundColor: backgroundColor,
       title: GestureDetector(
-       onTap: _navigatorBack,
-        child: SvgPicture.asset(
-          AppAssets.kBackIcon,
-          color: iconColor,
+        onTap: () => Get.back(),
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: SvgPicture.asset(
+            AppAssets.kBackIcon,
+            color: iconColor,
+          ),
         ),
       ),
       actions: [
@@ -41,5 +47,4 @@ class SliverAppBarWidget extends StatelessWidget {
       elevation: 0,
     );
   }
-_navigatorBack(){ Get.back();}
 }

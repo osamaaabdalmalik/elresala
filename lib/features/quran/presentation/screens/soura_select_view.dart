@@ -14,7 +14,7 @@ class SuoraSelectView extends StatelessWidget {
             child: CustomScrollView(
               slivers: [
                 SliverAppBarWidget(isSearch: true),
-                SouraSelectSliver(),
+                SurahSelectSliver(),
               ],
             ),
           ),
