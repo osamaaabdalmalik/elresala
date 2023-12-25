@@ -14,7 +14,7 @@ class QuranBindings extends Bindings {
       QuranRepoImpl(
         quranRemoteDataSource: Get.find(),
         sharedPreferencesService: Get.find(),
-        fileService: Get.find(),
+        firebaseStorageService: Get.find(),
       ),
     );
 

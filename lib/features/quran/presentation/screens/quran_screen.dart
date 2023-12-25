@@ -9,11 +9,11 @@ class QuranScreen extends GetView<QuranController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBarWidget(isSearch: true),
-          SurahSelectSliver(),
+          const SliverAppBarWidget(isSearch: true),
+          SurahSelectSliver(surahs: controller.surahs),
         ],
       ),
     );

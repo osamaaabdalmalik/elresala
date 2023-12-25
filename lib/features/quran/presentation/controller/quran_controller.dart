@@ -17,7 +17,7 @@ class QuranController extends GetxController {
     Get.find<Logger>().i("Start onInit QuranController");
     super.onInit();
     await getSurahs();
-    Get.find<Logger>().f("End onInit QuranController");
+    Get.find<Logger>().w("End onInit QuranController");
   }
 
   Future<void> getSurahs() async {
@@ -25,7 +25,9 @@ class QuranController extends GetxController {
     getSurahsState = StateType.loading;
     update();
     GetSurahsUseCase getSurahsUseCase = GetSurahsUseCase(Get.find());
-    var result = await getSurahsUseCase();
+    var result = await getSurahsUseCase(
+      onProgress: (progress) {},
+    );
     result.fold(
       (l) async {
         getSurahsState = getStateFromFailure(l);
@@ -40,6 +42,6 @@ class QuranController extends GetxController {
         update();
       },
     );
-    Get.find<Logger>().f("End `getSurahs` in |QuranController| $getSurahsState");
+    Get.find<Logger>().w("End `getSurahs` in |QuranController| $getSurahsState");
   }
 }

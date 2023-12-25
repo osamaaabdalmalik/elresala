@@ -28,8 +28,8 @@ class PrimaryShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: color.withOpacity(0.5),
-      highlightColor: color,
+      baseColor: color.withOpacity(0.2),
+      highlightColor: color.withOpacity(0.5),
       direction: Get.locale!.languageCode == 'ar' ? ShimmerDirection.rtl : ShimmerDirection.ltr,
       child: Container(
         width: width,
