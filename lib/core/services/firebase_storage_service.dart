@@ -10,15 +10,30 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
-class FileService extends GetxService {
+class FirebaseStorageService extends GetxService {
   final ApiService apiService;
   final FirebaseStorage _storage = FirebaseStorage.instance;
 
-  FileService({required this.apiService});
+  FirebaseStorageService({required this.apiService});
 
-  Future<List<InfoFile>> getInfoFiles({required String language}) async {
+  Future<List<String>> getLanguages() async {
     try {
-      Get.find<Logger>().i("Start `getInfoFiles` in |FileService|");
+      Get.find<Logger>().i("Start `getLanguages` in |FileService|");
+      ListResult result = await _storage.ref().listAll();
+      List<String> languages = result.items.map((item) => item.name.split('.').first).toList();
+      Get.find<Logger>().w("End `getLanguages` in |FileService|");
+      return languages;
+    } catch (e) {
+      Get.find<Logger>().e(
+        "End `getLanguages` in |FileService| Exception: ${e.runtimeType}",
+      );
+      rethrow;
+    }
+  }
+
+  Future<List<InfoFile>> getInfoFilesOfLanguage({required String language}) async {
+    try {
+      Get.find<Logger>().i("Start `getInfoFilesOfLanguage` in |FileService|");
       ListResult result = await _storage.ref(language).listAll();
 
       List<String> downloadURLs = await Future.wait(
@@ -28,15 +43,15 @@ class FileService extends GetxService {
       List<InfoFile> infoFiles = [];
       for (int i = 0; i < names.length; i++) {
         infoFiles.add(InfoFile(
-          name: names[i],
+          name: "$language/${names[i]}",
           downloadUrl: downloadURLs[i],
         ));
       }
-      Get.find<Logger>().f("End `getInfoFiles` in |FileService|");
+      Get.find<Logger>().w("End `getInfoFilesOfLanguage` in |FileService|");
       return infoFiles;
     } catch (e) {
       Get.find<Logger>().e(
-        "End `getInfoFiles` in |FileService| Exception: ${e.runtimeType}",
+        "End `getInfoFilesOfLanguage` in |FileService| Exception: ${e.runtimeType}",
       );
       rethrow;
     }
@@ -49,10 +64,8 @@ class FileService extends GetxService {
     try {
       Get.find<Logger>().i("Start `getInfoFile` in |FileService|");
       String downloadURL = await _storage.ref("$language/$name").getDownloadURL();
-      String fileName = _storage.ref("$language/$name").name;
-
-      Get.find<Logger>().f("End `getInfoFile` in |FileService|");
-      return InfoFile(name: fileName, downloadUrl: downloadURL);
+      Get.find<Logger>().w("End `getInfoFile` in |FileService|");
+      return InfoFile(name: "$language/$name", downloadUrl: downloadURL);
     } catch (e) {
       Get.find<Logger>().e(
         "End `getInfoFile` in |FileService| Exception: ${e.runtimeType}",
@@ -72,7 +85,8 @@ class FileService extends GetxService {
         subPath: infoFile.name,
         onProgress: onProgress,
       );
-      Get.find<Logger>().f("End `getInfoFiles` in |FileService|");
+      Get.find<Logger>().w("End `getInfoFiles` in |FileService|");
+      await Get.find<SharedPreferencesService>().setData(key: infoFile.name, value: path);
       return path;
     } catch (e) {
       Get.find<Logger>().e(
@@ -89,23 +103,22 @@ class FileService extends GetxService {
   }) async {
     try {
       Get.find<Logger>().i("Start `downloadFiles` in |FileService|");
-      bool? isAlreadyDownload = Get.find<SharedPreferencesService>().getPrimitiveData<bool>(
+      bool? isAlreadyDownload = Get.find<SharedPreferencesService>().getData<bool>(
         key: "$language is Downloaded",
       );
       if (isAlreadyDownload != null && isAlreadyDownload) {
         return const Right(unit);
       }
-      List<InfoFile> infoFiles = await getInfoFiles(language: language);
+      List<InfoFile> infoFiles = await getInfoFilesOfLanguage(language: language);
       for (int i = 0; i < infoFiles.length; i++) {
         onProgressFiles(infoFiles.length, i + 1);
-        String path = await downloadFile(
+        await downloadFile(
           infoFile: infoFiles[i],
           onProgress: onProgressFile,
         );
-        await Get.find<SharedPreferencesService>().setPrimitiveData(key: "$language/${infoFiles[i].name}", value: path);
       }
-      await Get.find<SharedPreferencesService>().setPrimitiveData(key: "$language is Downloaded", value: true);
-      Get.find<Logger>().f("End `downloadFiles` in |FileService|");
+      await Get.find<SharedPreferencesService>().setData(key: "$language is Downloaded", value: true);
+      Get.find<Logger>().w("End `downloadFiles` in |FileService|");
       return const Right(unit);
     } catch (e) {
       Get.find<Logger>().e("End `downloadFiles` in |FileService| Exception: ${e.runtimeType}");
@@ -116,21 +129,24 @@ class FileService extends GetxService {
   Future<String?> readFile({
     required String language,
     required String name,
+    Function()? onFileNotFound,
   }) async {
     try {
       Get.find<Logger>().i("Start `readFile` in |FileService|");
-      String? path = Get.find<SharedPreferencesService>().getPrimitiveData<String>(key: "$language/$name");
+      String? path = Get.find<SharedPreferencesService>().getData<String>(key: "$language/$name");
       if (path != null) {
         final file = File(path);
         if (await file.exists()) {
           String fileContent = await file.readAsString();
-          Get.find<Logger>().f("End `readFile` in |FileService|");
+          Get.find<Logger>().w("End `readFile` in |FileService|");
           return fileContent;
         } else {
-          Get.find<SharedPreferencesService>().setPrimitiveData(key: "$language/$name", value: null);
+          Get.find<SharedPreferencesService>().setData(key: "$language/$name", value: null);
+          onFileNotFound?.call();
           return null;
         }
       }
+      onFileNotFound?.call();
       return null;
     } catch (e) {
       Get.find<Logger>().e("End `readFile` in |FileService| Exception: ${e.runtimeType}");
