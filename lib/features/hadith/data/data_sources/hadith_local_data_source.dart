@@ -21,7 +21,7 @@ class HadithLocalDataSourceImpl extends HadithLocalDataSource {
   @override
   Future<List<HadithModel>> getHadithes() async {
     try {
-      Get.find<Logger>().i("Start `getSurahs` in |HadithLocalDataSourceImpl|");
+      Get.find<Logger>().i("Start `getHadithes` in |HadithLocalDataSourceImpl|");
       String? fileContent = await firebaseStorageService.readFile(name: AppKeys.hadith);
 
       /// TODO get data from file depend on content and convert to models
@@ -37,11 +37,11 @@ class HadithLocalDataSourceImpl extends HadithLocalDataSource {
       ///     .toList();
       ///  }
       ///  `
-      Get.find<Logger>().w("End `getSurahs` in |HadithLocalDataSourceImpl|");
+      Get.find<Logger>().w("End `getHadithes` in |HadithLocalDataSourceImpl|");
       return Future.value([] /** hadithes **/);
     } catch (e) {
       Get.find<Logger>().e(
-        "End `getSurahs` in |HadithLocalDataSourceImpl| Exception: ${e.runtimeType}",
+        "End `getHadithes` in |HadithLocalDataSourceImpl| Exception: ${e.runtimeType}",
       );
       rethrow;
     }
