@@ -16,12 +16,17 @@ class InitialBindings extends Bindings {
     Get.put(SharedPreferencesService(pref: Get.find()));
     Get.put(InternetConnectionChecker());
     Get.put<NetworkInfo>(NetworkInfoImpl(Get.find()));
-    Get.put(ApiService(
-      client: http.Client(),
-      networkInfo: Get.find(),
-    ));
-    Get.put(FirebaseStorageService(
-      apiService: Get.find(),
-    ));
+    Get.put(
+      ApiService(
+        client: http.Client(),
+        networkInfo: Get.find(),
+      ),
+    );
+    Get.put(
+      FirebaseStorageService(
+        apiService: Get.find(),
+        sharedPreferencesService: Get.find(),
+      ),
+    );
   }
 }

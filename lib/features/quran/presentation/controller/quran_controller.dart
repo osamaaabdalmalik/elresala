@@ -6,10 +6,13 @@ import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
 class QuranController extends GetxController {
+  // Data
   List<Surah> surahs = [];
 
+  // States
   StateType getSurahsState = StateType.init;
 
+  // Primitive
   String validationMessage = '';
 
   @override
@@ -25,9 +28,7 @@ class QuranController extends GetxController {
     getSurahsState = StateType.loading;
     update();
     GetSurahsUseCase getSurahsUseCase = GetSurahsUseCase(Get.find());
-    var result = await getSurahsUseCase(
-      onProgress: (progress) {},
-    );
+    var result = await getSurahsUseCase();
     result.fold(
       (l) async {
         getSurahsState = getStateFromFailure(l);

@@ -10,8 +10,8 @@ class GetSurahsUseCase {
 
   GetSurahsUseCase(this.quranRepo);
 
-  Future<Either<Failure, List<Surah>>> call({required Function(double progress) onProgress}) async {
+  Future<Either<Failure, List<Surah>>> call() async {
     Get.find<Logger>().i("Call GetSurahsUseCase");
-    return await quranRepo.getSurahs(onProgress: onProgress);
+    return await quranRepo.getSurahs();
   }
 }

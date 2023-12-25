@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:elresala/core/constants/app_keys.dart';
+import 'package:elresala/core/constants/app_pages_routes.dart';
 import 'package:elresala/core/errors/failures.dart';
 import 'package:elresala/core/helpers/get_failure_from_exception.dart';
 import 'package:elresala/core/services/api_service.dart';
@@ -13,8 +15,12 @@ import 'package:logger/logger.dart';
 class FirebaseStorageService extends GetxService {
   final ApiService apiService;
   final FirebaseStorage _storage = FirebaseStorage.instance;
+  final SharedPreferencesService sharedPreferencesService;
 
-  FirebaseStorageService({required this.apiService});
+  FirebaseStorageService({
+    required this.apiService,
+    required this.sharedPreferencesService,
+  });
 
   Future<List<String>> getLanguages() async {
     try {
@@ -86,7 +92,7 @@ class FirebaseStorageService extends GetxService {
         onProgress: onProgress,
       );
       Get.find<Logger>().w("End `getInfoFiles` in |FileService|");
-      await Get.find<SharedPreferencesService>().setData(key: infoFile.name, value: path);
+      await sharedPreferencesService.setData(key: infoFile.name, value: path);
       return path;
     } catch (e) {
       Get.find<Logger>().e(
@@ -103,7 +109,7 @@ class FirebaseStorageService extends GetxService {
   }) async {
     try {
       Get.find<Logger>().i("Start `downloadFiles` in |FileService|");
-      bool? isAlreadyDownload = Get.find<SharedPreferencesService>().getData<bool>(
+      bool? isAlreadyDownload = sharedPreferencesService.getData<bool>(
         key: "$language is Downloaded",
       );
       if (isAlreadyDownload != null && isAlreadyDownload) {
@@ -117,7 +123,7 @@ class FirebaseStorageService extends GetxService {
           onProgress: onProgressFile,
         );
       }
-      await Get.find<SharedPreferencesService>().setData(key: "$language is Downloaded", value: true);
+      await sharedPreferencesService.setData(key: "$language is Downloaded", value: true);
       Get.find<Logger>().w("End `downloadFiles` in |FileService|");
       return const Right(unit);
     } catch (e) {
@@ -126,27 +132,34 @@ class FirebaseStorageService extends GetxService {
     }
   }
 
-  Future<String?> readFile({
-    required String language,
-    required String name,
-    Function()? onFileNotFound,
-  }) async {
+  Future<String?> readFile({required String name}) async {
     try {
       Get.find<Logger>().i("Start `readFile` in |FileService|");
-      String? path = Get.find<SharedPreferencesService>().getData<String>(key: "$language/$name");
-      if (path != null) {
-        final file = File(path);
-        if (await file.exists()) {
-          String fileContent = await file.readAsString();
-          Get.find<Logger>().w("End `readFile` in |FileService|");
-          return fileContent;
+      String? currentLanguage = sharedPreferencesService.getData<String>(
+        key: AppKeys.currentLanguage,
+      );
+      if (currentLanguage != null) {
+        String? path = sharedPreferencesService.getData<String>(key: "$currentLanguage/$name");
+        if (path != null) {
+          final file = File(path);
+          if (await file.exists()) {
+            String fileContent = await file.readAsString();
+            Get.find<Logger>().w("End `readFile` in |FileService|");
+            return fileContent;
+          } else {
+            // File not exist
+            sharedPreferencesService.setData(key: "$currentLanguage/$name", value: null);
+            Get.offAllNamed(AppPagesRoutes.languagesScreen);
+          }
         } else {
-          Get.find<SharedPreferencesService>().setData(key: "$language/$name", value: null);
-          onFileNotFound?.call();
-          return null;
+          // File path not found
+          Get.offAllNamed(AppPagesRoutes.languagesScreen);
         }
+      } else {
+        // No selected language
+        Get.offAllNamed(AppPagesRoutes.languagesScreen);
       }
-      onFileNotFound?.call();
+      Get.find<Logger>().w("End `readFile` in |FileService|");
       return null;
     } catch (e) {
       Get.find<Logger>().e("End `readFile` in |FileService| Exception: ${e.runtimeType}");

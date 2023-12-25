@@ -5,6 +5,7 @@ import 'package:elresala/core/services/api_service.dart';
 import 'package:elresala/features/main/data/models/pair_model.dart';
 
 abstract class QuranRemoteDataSource {
+  // TODO This is example
   Future<List<PairModel>> getCategoriesAsPair({required int repositoryId});
 }
 
@@ -13,6 +14,7 @@ class QuranRemoteDataSourceImpl extends QuranRemoteDataSource {
 
   QuranRemoteDataSourceImpl({required this.apiService});
 
+  // TODO This is example
   @override
   Future<List<PairModel>> getCategoriesAsPair({required int repositoryId}) async {
     try {
