@@ -1,11 +1,12 @@
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/styles/text_styles.dart';
 import 'package:elresala/core/utils/components/appbar/build_sliver_appbar.dart';
-import 'package:elresala/features/hadith/hadith_book_screen.dart';
+import 'package:elresala/features/hadith/presentation/controller/hadith_controller.dart';
+import 'package:elresala/features/hadith/presentation/screens/hadith_book_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HadithScreen extends StatelessWidget {
+class HadithScreen extends GetView<HadithController> {
   const HadithScreen({super.key});
 
   @override
@@ -72,8 +73,10 @@ class HadithSectionWidget extends StatelessWidget {
     required this.hadithBookName,
     required this.onTap,
   });
+
   final String hadithBookName;
   final VoidCallback onTap;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

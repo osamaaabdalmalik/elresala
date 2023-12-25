@@ -1,10 +1,10 @@
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/styles/text_styles.dart';
 import 'package:elresala/core/utils/components/appbar/build_sliver_appbar.dart';
-import 'package:elresala/features/hadith/widgets/hadith_item.dart';
-import 'package:elresala/features/hadith/widgets/hadith_number_widget.dart';
-import 'package:elresala/features/hadith/widgets/hadith_section_name.dart';
-import 'package:elresala/features/hadith/widgets/hadith_settings_icons_row_widget.dart';
+import 'package:elresala/features/hadith/presentation/widgets/hadith_item.dart';
+import 'package:elresala/features/hadith/presentation/widgets/hadith_number_widget.dart';
+import 'package:elresala/features/hadith/presentation/widgets/hadith_section_name.dart';
+import 'package:elresala/features/hadith/presentation/widgets/hadith_settings_icons_row_widget.dart';
 import 'package:flutter/material.dart';
 
 class HadithBookScreen extends StatelessWidget {
