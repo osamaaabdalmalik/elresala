@@ -7,11 +7,13 @@ class PrimaryShimmer extends StatelessWidget {
   final double width;
   final double height;
   final ShapeBorder border;
+  final Color color;
 
   const PrimaryShimmer.rectangle({
     super.key,
     this.width = double.infinity,
     required this.height,
+    this.color = AppColors.kPrimaryColor,
     this.border = const RoundedRectangleBorder(),
   });
 
@@ -19,22 +21,21 @@ class PrimaryShimmer extends StatelessWidget {
     super.key,
     required this.width,
     required this.height,
+    this.color = AppColors.kPrimaryColor,
     this.border = const CircleBorder(),
   });
 
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: AppColors.materialPrimary[50]!,
-      highlightColor: AppColors.materialPrimary[100]!,
-      direction: Get.locale!.languageCode == 'ar'
-          ? ShimmerDirection.rtl
-          : ShimmerDirection.ltr,
+      baseColor: color.withOpacity(0.5),
+      highlightColor: color,
+      direction: Get.locale!.languageCode == 'ar' ? ShimmerDirection.rtl : ShimmerDirection.ltr,
       child: Container(
         width: width,
         height: height,
         decoration: ShapeDecoration(
-          color: AppColors.materialPrimary[50]!,
+          color: color.withOpacity(0.5),
           shape: border,
         ),
       ),
