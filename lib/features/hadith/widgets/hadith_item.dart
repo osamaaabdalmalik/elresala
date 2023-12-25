@@ -1,8 +1,6 @@
-import 'package:elresala/core/styles/text_styles.dart';
-import 'package:elresala/features/quran/presentation/widgets/aya_text.dart';
-import 'package:flutter/material.dart';
-
 import 'package:elresala/core/constants/app_colors.dart';
+import 'package:elresala/core/styles/text_styles.dart';
+import 'package:flutter/material.dart';
 
 class HadithItemWidget extends StatelessWidget {
   const HadithItemWidget({super.key});

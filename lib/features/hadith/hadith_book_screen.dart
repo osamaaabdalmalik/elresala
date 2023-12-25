@@ -1,4 +1,3 @@
-import 'package:elresala/core/constants/app_assets.dart';
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/styles/text_styles.dart';
 import 'package:elresala/core/utils/components/appbar/build_sliver_appbar.dart';
@@ -6,9 +5,7 @@ import 'package:elresala/features/hadith/widgets/hadith_item.dart';
 import 'package:elresala/features/hadith/widgets/hadith_number_widget.dart';
 import 'package:elresala/features/hadith/widgets/hadith_section_name.dart';
 import 'package:elresala/features/hadith/widgets/hadith_settings_icons_row_widget.dart';
-import 'package:elresala/features/quran/presentation/widgets/aya_arabic_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class HadithBookScreen extends StatelessWidget {
   const HadithBookScreen({super.key});
@@ -70,9 +67,11 @@ class HadithDetailsText extends StatelessWidget {
     required this.infoText,
     required this.detailsText,
   });
+
   final TextDirection? textDirection;
   final String infoText;
   final String detailsText;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
