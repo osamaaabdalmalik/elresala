@@ -28,13 +28,13 @@ class MainController extends GetxController {
       title: "Dua",
       description: "Learn how to pray,Qiblah",
       iconPath: AppAssets.prayer,
-      targetScreen: AppPagesRoutes.mainScreen,
+      targetScreen: AppPagesRoutes.doaaScreen,
     ),
     HomeCardData(
       title: "Azkar",
       description: "Learn how to pray,Qiblah",
       iconPath: AppAssets.azkar,
-      targetScreen: AppPagesRoutes.mainScreen,
+      targetScreen: AppPagesRoutes.azkarScreen,
     ),
     HomeCardData(
       title: "Hadith",
