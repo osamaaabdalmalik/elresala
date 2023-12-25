@@ -8,8 +8,10 @@ abstract class AppAssets {
   // SVG
   static const String rootSVG = "assets/svg";
 
+  static const String imageSVG='$rootSVG/images';
   //
   static const String rootSVGIcon = "$rootSVG/icons";
+  //
   static const String logo = "$rootSVGIcon/logo.svg";
   static const String quran = "$rootSVGIcon/quran.svg";
   static const String hadith = "$rootSVGIcon/hadith.svg";
@@ -20,6 +22,7 @@ abstract class AppAssets {
   static const String profileDefault = "$rootSVG/profile_default.svg";
   static const String categoriesIconSvg = "$rootSVGIcon/categories.svg";
   static const String kBasmalaImage = '$rootImages/basmala.png';
+  static const String kZaghrafaIcon = '$imageSVG/zaghrafa.png';
 
   static const String kCopyIcon = '$rootSVGIcon/copy.svg';
   static const String kEllipseBallProgress = '$rootSVGIcon/Ellipse_ball_progress.svg';
@@ -33,7 +36,6 @@ abstract class AppAssets {
   static const String kEyeViewFillIcon = '$rootSVGIcon/View_fill.svg';
   static const String kStepPalyIcon = '$rootSVGIcon/step_play.svg';
   static const String kBackIcon = '$rootSVGIcon/kBackIcon.svg';
-  static const String kZaghrafaIcon = '$rootSVGIcon/zaghrafa.png';
   static const String kBookmarkFillIcon = '$rootSVGIcon/Bookmark_fill.svg';
   static const String kBookmarkIcon = '$rootSVGIcon/Bookmark.svg';
   static const String kSearchIcon = '$rootSVGIcon/Search.svg';

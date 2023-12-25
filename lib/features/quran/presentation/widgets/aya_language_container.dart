@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/constants/app_assets.dart';
+
 class AyaLanguageContainer extends StatelessWidget {
   const AyaLanguageContainer({super.key});
 
@@ -22,14 +23,14 @@ class AyaLanguageContainer extends StatelessWidget {
               BoxConstraints(maxWidth: MediaQuery.sizeOf(context).width - 50),
           child: AyaText(
               aya: ayaEnglish,
-              ayaStyle: Styles.textStyleAyaLanguage,
+              ayaStyle: Styles.textStyle18Black,
               ayaNumber: ayaNumber,
               textDirection: TextDirection.ltr,
               ayaNumberStyle: Styles.textStyleQuranPageNumber
                   .copyWith(color: AppColors.kGreenColor)),
         ),
         SvgPicture.asset(
-         AppAssets.kCopyIcon ,
+          AppAssets.kCopyIcon,
         ),
       ],
     );

@@ -7,14 +7,14 @@ class AyaText extends StatelessWidget {
     required this.aya,
     required this.ayaNumber,
     this.textDirection = TextDirection.rtl,
-     this.ayaStyle=Styles.textStyleAya,
-     this.ayaNumberStyle=Styles.textStyleQuranPageNumber,
+    this.ayaStyle = Styles.textStyle18Godlen,
+    this.ayaNumberStyle = Styles.textStyleQuranPageNumber,
   });
 
   final String aya;
   final int ayaNumber;
   final TextDirection textDirection;
-  final TextStyle ayaStyle ;
+  final TextStyle ayaStyle;
   final TextStyle ayaNumberStyle;
 
   @override
