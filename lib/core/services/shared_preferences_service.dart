@@ -8,8 +8,8 @@ class SharedPreferencesService extends GetxService {
 
   SharedPreferencesService({required this.pref});
 
-  T? getPrimitiveData<T>({required String key}) {
-    Get.find<Logger>().i("Start `getPrimitiveData` in |MainLocalDataSourceImpl| ~~key~~ $key");
+  T? getData<T>({required String key}) {
+    Get.find<Logger>().i("Start `getData` in |SharedPreferencesService| ~~key~~ $key");
     T? value;
     if (T.toString() == 'int') {
       value = pref.getInt(key) as T?;
@@ -23,15 +23,15 @@ class SharedPreferencesService extends GetxService {
     if (T.toString() == 'String') {
       value = pref.getString(key) as T?;
     }
-    Get.find<Logger>().f(
-      "End `getPrimitiveData` in |MainLocalDataSourceImpl| ~~$key~~ $value",
+    Get.find<Logger>().w(
+      "End `getData` in |SharedPreferencesService| ~~$key~~ $value",
     );
     return value;
   }
 
-  Future<Unit> setPrimitiveData({required String key, required dynamic value}) async {
+  Future<Unit> setData({required String key, required dynamic value}) async {
     Get.find<Logger>().i(
-      "Start `setPrimitiveData` in |MainLocalDataSourceImpl| ~~key~~ $key, ~~value~~ $value",
+      "Start `setData` in |SharedPreferencesService| ~~key~~ $key, ~~value~~ $value",
     );
     bool isSetDone = false;
     if (value is int) {
@@ -54,17 +54,17 @@ class SharedPreferencesService extends GetxService {
       isSetDone = await pref.remove(key);
       return Future.value(unit);
     }
-    Get.find<Logger>().f(
-      "End `setPrimitiveData` in |MainLocalDataSourceImpl| ~~isSetDone~~ $isSetDone",
+    Get.find<Logger>().w(
+      "End `setData` in |SharedPreferencesService| ~~isSetDone~~ $isSetDone",
     );
     return Future.value(unit);
   }
 
   Future<Unit> clear() async {
-    Get.find<Logger>().i("Start `clear` in |MainLocalDataSourceImpl|");
+    Get.find<Logger>().i("Start `clear` in |SharedPreferencesService|");
     final clear = await pref.clear();
-    Get.find<Logger>().f(
-      "End `clear` in |MainLocalDataSourceImpl| ~~isClear~~ $clear ",
+    Get.find<Logger>().w(
+      "End `clear` in |SharedPreferencesService| ~~isClear~~ $clear ",
     );
     return Future.value(unit);
   }
