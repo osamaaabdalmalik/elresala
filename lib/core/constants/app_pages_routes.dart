@@ -1,3 +1,4 @@
+import 'package:elresala/core/middleware/main_middleware.dart';
 import 'package:elresala/features/main/main_bindings.dart';
 import 'package:elresala/features/main/presentation/screens/languages_screen.dart';
 import 'package:elresala/features/main/presentation/screens/main_screen.dart';
@@ -20,11 +21,13 @@ abstract class AppPagesRoutes {
       name: mainScreen,
       page: () => const MainScreen(),
       binding: MainBindings(),
+      middlewares: [MainMiddleware()],
       transition: Transition.cupertino,
     ),
     GetPage(
       name: languagesScreen,
       page: () => const LanguagesScreen(),
+      binding: MainBindings(),
       transition: Transition.cupertino,
     ),
     GetPage(
