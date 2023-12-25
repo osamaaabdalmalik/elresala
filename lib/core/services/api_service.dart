@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:elresala/core/constants/app_api_routes.dart';
 import 'package:elresala/core/errors/exception.dart';
 import 'package:elresala/core/helpers/get_exception_from_status_code.dart';
@@ -23,7 +23,7 @@ class ApiService extends GetxService {
   @override
   void onInit() {
     Get.find<Logger>().i('Start onInit in ApiServiceImpl');
-    Get.find<Logger>().f('End onInit in ApiServiceImpl');
+    Get.find<Logger>().w('End onInit in ApiServiceImpl');
     super.onInit();
   }
 
@@ -46,7 +46,7 @@ class ApiService extends GetxService {
         headers: setHeaders(),
       );
       getExceptionStatusCode(response);
-      Get.find<Logger>().f('End post `$subUrl` |ApiServiceImpl| response: ${json.decode(response.body)}');
+      Get.find<Logger>().w('End post `$subUrl` |ApiServiceImpl| response: ${json.decode(response.body)}');
       return Future.value(json.decode(response.body));
     } catch (e) {
       Get.find<Logger>().e('End post `$subUrl` |ApiServiceImpl| Exception: ${e.runtimeType}');
@@ -75,7 +75,7 @@ class ApiService extends GetxService {
         headers: setHeaders(),
       );
       getExceptionStatusCode(response);
-      Get.find<Logger>().f('End get `$subUrl` |ApiServiceImpl| response: ${response.body}');
+      Get.find<Logger>().w('End get `$subUrl` |ApiServiceImpl| response: ${response.body}');
       return Future.value((json.decode(response.body)));
     } catch (e) {
       Get.find<Logger>().e('End get `$subUrl` |ApiServiceImpl| Exception: ${e.runtimeType}');
@@ -93,34 +93,17 @@ class ApiService extends GetxService {
       if (!(await networkInfo.isConnected)) {
         throw OfflineException();
       }
-
-      final http.Request request = http.Request('GET', Uri.parse(url));
-      var response = await client.send(request);
-      final contentLength = response.headers['content-length'];
-      final totalBytes = contentLength != null ? int.parse(contentLength) : 0;
-      int receivedBytes = 0;
-
       final appDocumentDirectory = await getApplicationDocumentsDirectory();
-      final file = File('${appDocumentDirectory.path}/$subPath');
-      final sink = file.openWrite();
-
-      try {
-        await response.stream.forEach(
-          (List<int> chunk) {
-            sink.add(chunk);
-            receivedBytes += chunk.length;
-            onProgress(receivedBytes / totalBytes);
-          },
-        );
-      } catch (error) {
-        Get.find<Logger>().e('Error during file download: $error');
-      } finally {
-        await sink.flush();
-        await sink.close();
-      }
-
-      Get.find<Logger>().f('End downloadFile `$url` |ApiServiceImpl|');
-      return Future.value(file.path);
+      String path = '${appDocumentDirectory.path}/$subPath';
+      await Dio().download(
+        url,
+        path,
+        onReceiveProgress: (count, total) {
+          onProgress(count / total);
+        },
+      );
+      Get.find<Logger>().w('End downloadFile `$url` |ApiServiceImpl|');
+      return Future.value(path);
     } catch (e) {
       Get.find<Logger>().e('End downloadFile `$url` |ApiServiceImpl| Exception: ${e.runtimeType}');
       rethrow;
