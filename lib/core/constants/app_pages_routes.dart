@@ -3,6 +3,8 @@ import 'package:elresala/features/azkar/azkar_bindings.dart';
 import 'package:elresala/features/azkar/presentation/screens/azkar_screen.dart';
 import 'package:elresala/features/doaa/doaa_bindings.dart';
 import 'package:elresala/features/doaa/presentation/screens/doaa_screen.dart';
+import 'package:elresala/features/hadith/hadith_bindings.dart';
+import 'package:elresala/features/hadith/presentation/screens/hadith_screen.dart';
 import 'package:elresala/features/main/main_bindings.dart';
 import 'package:elresala/features/main/presentation/screens/languages_screen.dart';
 import 'package:elresala/features/main/presentation/screens/main_screen.dart';
@@ -21,6 +23,7 @@ abstract class AppPagesRoutes {
   static const String mainScreen = "/";
   static const String languagesScreen = "/languagesScreen";
   static const String quranScreen = "/quranScreen";
+  static const String hadithScreen = "/hadithScreen";
   static const String azkarScreen = "/azkarScreen";
   static const String doaaScreen = "/doaaScreen";
   static const String muslimScreen = "/muslimScreen";
@@ -46,6 +49,12 @@ abstract class AppPagesRoutes {
       name: quranScreen,
       page: () => const QuranScreen(),
       binding: QuranBindings(),
+      transition: Transition.cupertino,
+    ),
+    GetPage(
+      name: hadithScreen,
+      page: () => const HadithScreen(),
+      binding: HadithBindings(),
       transition: Transition.cupertino,
     ),
     GetPage(

@@ -5,7 +5,7 @@ import 'package:elresala/features/hadith/domain/repository/hadith_repo.dart';
 import 'package:elresala/features/hadith/presentation/controller/hadith_controller.dart';
 import 'package:get/get.dart';
 
-class QuranBindings extends Bindings {
+class HadithBindings extends Bindings {
   @override
   dependencies() async {
     Get.put<HadithRemoteDataSource>(
