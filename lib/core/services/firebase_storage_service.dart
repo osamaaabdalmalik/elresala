@@ -149,15 +149,21 @@ class FirebaseStorageService extends GetxService {
           } else {
             // File not exist
             sharedPreferencesService.setData(key: "$currentLanguage/$name", value: null);
-            Get.offAllNamed(AppPagesRoutes.languagesScreen);
+            Future.delayed(const Duration(milliseconds: 10)).then(
+              (value) => Get.offAllNamed(AppPagesRoutes.languagesScreen),
+            );
           }
         } else {
           // File path not found
-          Get.offAllNamed(AppPagesRoutes.languagesScreen);
+          Future.delayed(const Duration(milliseconds: 10)).then(
+            (value) => Get.offAllNamed(AppPagesRoutes.languagesScreen),
+          );
         }
       } else {
         // No selected language
-        Get.offAllNamed(AppPagesRoutes.languagesScreen);
+        Future.delayed(const Duration(milliseconds: 10)).then(
+          (value) => Get.offAllNamed(AppPagesRoutes.languagesScreen),
+        );
       }
       Get.find<Logger>().w("End `readFile` in |FileService|");
       return null;

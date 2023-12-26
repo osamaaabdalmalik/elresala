@@ -19,7 +19,7 @@ class DoaaController extends GetxController {
   void onInit() async {
     Get.find<Logger>().i("Start onInit DoaaController");
     super.onInit();
-    // await getDoaas();
+    await getDoaas();
     Get.find<Logger>().w("End onInit DoaaController");
   }
 

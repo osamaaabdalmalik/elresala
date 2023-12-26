@@ -19,7 +19,7 @@ class AzkarController extends GetxController {
   void onInit() async {
     Get.find<Logger>().i("Start onInit AzkarController");
     super.onInit();
-    // await getAzkars();
+    await getAzkars();
     Get.find<Logger>().w("End onInit AzkarController");
   }
 
