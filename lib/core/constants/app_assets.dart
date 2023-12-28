@@ -15,7 +15,8 @@ abstract class AppAssets {
   static const String kBasmalaImage = '$rootImages/basmala.png';
 
   static const String kCopyIcon = '$rootSVGIcon/copy.svg';
-  static const String kEllipseBallProgress = '$rootSVGIcon/Ellipse_ball_progress.svg';
+  static const String kEllipseBallProgress =
+      '$rootSVGIcon/Ellipse_ball_progress.svg';
   static const String kLineIcon = '$rootSVGIcon/Line 57.svg';
   static const String kPauseIcon = '$rootSVGIcon/pause_11.svg';
   static const String kPlayIcon = '$rootSVGIcon/Play_fill.svg';
@@ -31,6 +32,21 @@ abstract class AppAssets {
   static const String kBookmarkIcon = '$rootSVGIcon/Bookmark.svg';
   static const String kSearchIcon = '$rootSVGIcon/Search.svg';
   static const String kDownloadIcon = '$rootSVGIcon/Download.svg';
+  static const String menuIcon = '$rootSVGIcon/menu_icon.svg';
+  static const String logoApp = '$rootSVGIcon/elresala_logo_app.svg';
+  static const String arrowDropDownIcon =
+      '$rootSVGIcon/Arrow_drop_down_big.svg';
+  static const String moonFajrIcon = '$rootSVGIcon/moon_fajer_icon.svg';
+  static const String moonIshaIcon = '$rootSVGIcon/moon_isha_icon.svg';
+  static const String sunAsrIcon = '$rootSVGIcon/sun_asr_icon.svg';
+  static const String sunDuhurIcon = '$rootSVGIcon/sun_duhur_icon.svg';
+  static const String sunMaghribIcon = '$rootSVGIcon/sun_maghrib_icon.svg';
+  static const String quranIcon = '$rootSVGIcon/quran_icon.svg';
+  static const String prayIcon = '$rootSVGIcon/pray_icon.svg';
+  static const String hadithIcon = '$rootSVGIcon/hadith_icon_mohammad.svg';
+  static const String calenderIcon = '$rootSVGIcon/calender_date_icon.svg';
+  static const String azkarIcon = '$rootSVGIcon/azkar_icon_book_open_fill.svg';
+  static const String duaIcon = '$rootSVGIcon/dua-hands_image.svg';
 
   //
   static const String rootSvgImages = 'assets/svg/images';
