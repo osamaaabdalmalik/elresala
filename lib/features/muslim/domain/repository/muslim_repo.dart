@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:elresala/core/errors/failures.dart';
-import 'package:elresala/features/hadith/domain/entities/hadith_entity.dart';
+import 'package:elresala/features/muslim/data/models/course_model.dart';
 
 abstract class MuslimRepo {
-  Future<Either<Failure, List<Hadith>>> getCourses();
+  Future<Either<Failure, List<MuslimModel>>> getCourses();
 }

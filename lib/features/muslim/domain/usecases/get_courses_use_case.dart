@@ -1,17 +1,17 @@
 import 'package:dartz/dartz.dart';
 import 'package:elresala/core/errors/failures.dart';
-import 'package:elresala/features/hadith/domain/entities/hadith_entity.dart';
+import 'package:elresala/features/muslim/data/models/course_model.dart';
 import 'package:elresala/features/muslim/domain/repository/muslim_repo.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
 class GetCoursesUseCase {
-  final MuslimRepo azkarRepo;
+  final MuslimRepo muslimRepo;
 
-  GetCoursesUseCase(this.azkarRepo);
+  GetCoursesUseCase(this.muslimRepo);
 
-  Future<Either<Failure, List<Hadith>>> call() async {
+  Future<Either<Failure, List<MuslimModel>>> call() async {
     Get.find<Logger>().i("Call GetMuslimsUseCase");
-    return await azkarRepo.getCourses();
+    return await muslimRepo.getCourses();
   }
 }

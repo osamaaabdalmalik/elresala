@@ -24,7 +24,8 @@ class QuranLocalDataSourceImpl extends QuranLocalDataSource {
   Future<List<SurahModel>> getSurahs() async {
     try {
       Get.find<Logger>().i("Start `getSurahs` in |QuranLocalDataSourceImpl|");
-      String? quranJson = await firebaseStorageService.readFile(name: AppKeys.quran);
+      String? quranJson =
+          await firebaseStorageService.readFile(name: AppKeys.quran);
       List<SurahModel> surahs = [];
       if (quranJson != null) {
         var jsonData = json.decode(quranJson);

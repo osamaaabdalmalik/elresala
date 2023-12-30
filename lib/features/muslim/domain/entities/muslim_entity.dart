@@ -1,14 +1,31 @@
-// TODO This is example
-class Hadith {
-  final String name;
-  final String arabicContent;
-  final String content;
-  final String teller;
+class Muslim {
+  String title;
+  String description;
+  List<Lesson> lessons;
 
-  const Hadith({
-    required this.name,
-    required this.arabicContent,
-    required this.content,
-    required this.teller,
+  Muslim({
+    required this.title,
+    required this.description,
+    required this.lessons,
+  });
+}
+
+class Lesson {
+  String header;
+  List<NestedTopic> nestedTopics;
+
+  Lesson({
+    required this.header,
+    required this.nestedTopics,
+  });
+}
+
+class NestedTopic {
+  String title;
+  String body;
+
+  NestedTopic({
+    required this.title,
+    required this.body,
   });
 }
