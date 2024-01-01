@@ -8,7 +8,7 @@ abstract class AppAssets {
   // SVG
   static const String rootSVG = "assets/svg";
 
-  static const String imageSVG='$rootSVG/images';
+  static const String imageSVG = '$rootSVG/images';
   //
   static const String rootSVGIcon = "$rootSVG/icons";
   //
@@ -25,7 +25,8 @@ abstract class AppAssets {
   static const String kZaghrafaIcon = '$imageSVG/zaghrafa.png';
 
   static const String kCopyIcon = '$rootSVGIcon/copy.svg';
-  static const String kEllipseBallProgress = '$rootSVGIcon/Ellipse_ball_progress.svg';
+  static const String kEllipseBallProgress =
+      '$rootSVGIcon/Ellipse_ball_progress.svg';
   static const String kLineIcon = '$rootSVGIcon/Line 57.svg';
   static const String kPauseIcon = '$rootSVGIcon/pause_11.svg';
   static const String kPlayIcon = '$rootSVGIcon/Play_fill.svg';
