@@ -26,7 +26,10 @@ class ContentAzkarPage extends StatelessWidget {
         title: const Text('Moarning Souvenir'),
         centerTitle: true,
       ),
-      body: const BodyContentPage(),
+      body: const Padding(
+        padding: EdgeInsets.all(15),
+        child: BodyContentPage(),
+      ),
     );
   }
 }
