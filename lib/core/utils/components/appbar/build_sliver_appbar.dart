@@ -6,15 +6,16 @@ import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/constants/app_assets.dart';
 
 class SliverAppBarWidget extends StatelessWidget {
-  const SliverAppBarWidget({
-    super.key,
-    this.isSearch,
-    this.backgroundColor = AppColors.kPrimaryColor,
-    this.iconColor = AppColors.kWhiteColor,
-  });
+  const SliverAppBarWidget(
+      {super.key,
+      this.isSearch,
+      this.backgroundColor = AppColors.kPrimaryColor,
+      this.iconColor = AppColors.kWhiteColor,
+      this.isPinned = false});
   final bool? isSearch;
   final Color backgroundColor;
   final Color iconColor;
+  final bool isPinned;
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -50,6 +51,7 @@ class SliverAppBarWidget extends StatelessWidget {
       floating: true,
       snap: true,
       elevation: 0,
+      pinned: isPinned,
     );
   }
 

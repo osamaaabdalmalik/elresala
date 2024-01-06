@@ -19,6 +19,7 @@ class NonMuslimTopicsScreen extends GetView<NonMuslimController> {
         slivers: [
           const SliverAppBarWidget(
             isSearch: true,
+            isPinned: true,
           ),
           SliverList.builder(
             itemCount: topic.length,
