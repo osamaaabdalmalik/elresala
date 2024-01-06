@@ -1,6 +1,5 @@
 import 'package:elresala/core/constants/app_enums.dart';
 import 'package:elresala/core/helpers/get_state_from_failure.dart';
-import 'package:elresala/features/hadith/domain/entities/hadith_entity.dart';
 import 'package:elresala/features/non_muslim/data/models/course_model.dart';
 import 'package:elresala/features/non_muslim/domain/usecases/get_courses_use_case.dart';
 import 'package:get/get.dart';

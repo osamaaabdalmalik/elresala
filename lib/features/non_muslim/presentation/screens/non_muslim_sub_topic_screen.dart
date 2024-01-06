@@ -9,7 +9,10 @@ import 'package:get/get.dart';
 
 class NonMuslimSubTopicsScreen extends GetView<NonMuslimController> {
   final List<IslamNestedTopic> topic;
-  const NonMuslimSubTopicsScreen({super.key, required this.topic});
+  final String title;
+
+  const NonMuslimSubTopicsScreen(
+      {super.key, required this.topic, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -17,60 +20,74 @@ class NonMuslimSubTopicsScreen extends GetView<NonMuslimController> {
       backgroundColor: AppColors.kPrimaryColor,
       body: CustomScrollView(
         slivers: [
-          const SliverAppBarWidget(
+          SliverAppBarWidget(
+            title: title,
             // isSearch: true,
             isPinned: true,
           ),
-          SliverList.builder(
-            itemCount: topic.length,
-            itemBuilder: (context, index) {
-              return Card(
-                color: AppColors.kGreenColor,
-                child: ListTile(
-                  onTap: () {
-                    Get.to(
-                        () => NonMuslimTopicView(
-                              header: topic[index].title,
-                              body: topic[index].body,
-                            ),
-                        transition: Transition.cupertino);
-                  },
-                  leading: const Padding(
-                    padding: EdgeInsets.only(left: 20),
-                    child: VerticalDivider(
-                      thickness: 2,
-                      color: AppColors.white,
-                    ),
-                  ),
-                  title: Text(
-                    topic[index].title,
-                    style: Styles.textStyle18Godlen,
-                  ),
-                  subtitle: Text(
-                    topic[index].body,
-                    maxLines: 1,
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                  trailing: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Icon(
-                        Icons.info,
-                        color: AppColors.white,
-                      ),
-                      Container(
-                        width: 10,
-                      ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: AppColors.white,
-                      )
-                    ],
-                  ),
+          SliverToBoxAdapter(
+            child: Container(
+              height: MediaQuery.of(context).size.height - 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              child: ListView.builder(
+                padding: const EdgeInsets.all(
+                  10,
+                  // bottom: MediaQuery.of(context).size.height
                 ),
-              );
-            },
+                itemCount: topic.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    color: AppColors.kGreenColor,
+                    child: ListTile(
+                      onTap: () {
+                        Get.to(
+                            () => NonMuslimTopicView(
+                                  header: topic[index].title,
+                                  body: topic[index].body,
+                                ),
+                            transition: Transition.cupertino);
+                      },
+                      leading: const Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: VerticalDivider(
+                          thickness: 2,
+                          color: AppColors.white,
+                        ),
+                      ),
+                      title: Text(
+                        topic[index].title,
+                        style: Styles.textStyle18Godlen,
+                      ),
+                      subtitle: Text(
+                        topic[index].body,
+                        maxLines: 1,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      trailing: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(
+                            Icons.info,
+                            color: AppColors.white,
+                          ),
+                          Container(
+                            width: 10,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: AppColors.white,
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           )
         ],
       ),

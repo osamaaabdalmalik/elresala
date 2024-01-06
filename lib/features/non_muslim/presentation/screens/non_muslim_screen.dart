@@ -16,71 +16,88 @@ class NonMuslimSectionScreen extends GetView<NonMuslimController> {
       body: CustomScrollView(
         slivers: [
           const SliverAppBarWidget(
-            isSearch: true,
+            title: 'Courses for Non Muslims',
+            // isSearch: true,
+            isPinned: true,
           ),
-          GetBuilder<NonMuslimController>(builder: (c) {
-            if (c.hadithes.isEmpty) {
-              return const SliverToBoxAdapter(
-                child: Center(
-                  child: CircularProgressIndicator(),
-                ),
-              );
-            }
-            var topics = c.hadithes;
+          SliverToBoxAdapter(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              child: GetBuilder<NonMuslimController>(builder: (c) {
+                if (c.hadithes.isEmpty) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                var topics = c.hadithes;
 
-            return SliverList.builder(
-              itemCount: topics.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () => Get.to(
-                    () => NonMuslimTopicsScreen(topic: topics[index].topics),
-                    transition: Transition.cupertino,
-                  ),
-                  child: Card(
-                    color: AppColors.kGreenColor,
-                    child: ListTile(
-                      // onTap: () {
-                      //   Get.to(() =>
-                      //       NonMuslimTopicsScreen(topic: topics[index].topics));
-                      // },
-                      leading: const Padding(
-                        padding: EdgeInsets.only(left: 20),
-                        child: VerticalDivider(
-                          thickness: 2,
-                          color: AppColors.white,
+                return ListView.builder(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.only(
+                      left: 10,
+                      right: 10,
+                      top: 10,
+                      bottom: MediaQuery.of(context).size.height),
+                  itemCount: topics.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () => Get.to(
+                        () => NonMuslimTopicsScreen(
+                          topics: topics[index].topics,
+                          title: topics[index].sectionName,
+                        ),
+                        transition: Transition.cupertino,
+                      ),
+                      child: Card(
+                        color: AppColors.kGreenColor,
+                        child: ListTile(
+                          // onTap: () {
+                          //   Get.to(() =>
+                          //       NonMuslimTopicsScreen(topic: topics[index].topics));
+                          // },
+                          leading: const Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: VerticalDivider(
+                              thickness: 2,
+                              color: AppColors.white,
+                            ),
+                          ),
+                          title: Text(
+                            topics[index].sectionName,
+                            style: Styles.textStyle18Godlen,
+                          ),
+                          subtitle: Text(
+                            topics[index].topics.first.header,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                          trailing: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(
+                                Icons.info,
+                                color: AppColors.white,
+                              ),
+                              Container(
+                                width: 10,
+                              ),
+                              const Icon(
+                                Icons.arrow_forward_ios,
+                                color: AppColors.white,
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                      title: Text(
-                        topics[index].sectionName,
-                        style: Styles.textStyle18Godlen,
-                      ),
-                      subtitle: Text(
-                        topics[index].topics.first.header,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                      trailing: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Icon(
-                            Icons.info,
-                            color: AppColors.white,
-                          ),
-                          Container(
-                            width: 10,
-                          ),
-                          const Icon(
-                            Icons.arrow_forward_ios,
-                            color: AppColors.white,
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                    );
+                  },
                 );
-              },
-            );
-          }),
+              }),
+            ),
+          ),
         ],
       ),
     );
