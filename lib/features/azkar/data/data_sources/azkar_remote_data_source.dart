@@ -16,9 +16,11 @@ class AzkarRemoteDataSourceImpl extends AzkarRemoteDataSource {
 
   // TODO This is example
   @override
-  Future<List<PairModel>> getCategoriesAsPair({required int repositoryId}) async {
+  Future<List<PairModel>> getCategoriesAsPair(
+      {required int repositoryId}) async {
     try {
-      Get.find<Logger>().i("Start `getCategoriesAsPair` in |AzkarRemoteDataSourceImpl|");
+      Get.find<Logger>()
+          .i("Start `getCategoriesAsPair` in |AzkarRemoteDataSourceImpl|");
 
       Map<String, dynamic> mapData = await apiService.get(
         subUrl: AppApiRoutes.getCategoriesAsPair,
@@ -32,7 +34,8 @@ class AzkarRemoteDataSourceImpl extends AzkarRemoteDataSource {
           )
           .toList();
 
-      Get.find<Logger>().w("End `getCategoriesAsPair` in |AzkarRemoteDataSourceImpl|");
+      Get.find<Logger>()
+          .w("End `getCategoriesAsPair` in |AzkarRemoteDataSourceImpl|");
       return Future.value(expenses);
     } catch (e) {
       Get.find<Logger>().e(

@@ -22,10 +22,12 @@ class AzkarRepoImpl implements AzkarRepo {
     try {
       Get.find<Logger>().i("Start `getAzkars` in |AzkarRepoImpl|");
       var hadithes = await azkarLocalDataSource.getAzkars();
-      Get.find<Logger>().w("End `getAzkars` in |AzkarRepoImpl| ${hadithes.length}");
+      Get.find<Logger>()
+          .w("End `getAzkars` in |AzkarRepoImpl| ${hadithes.length}");
       return Right(hadithes);
     } catch (e) {
-      Get.find<Logger>().e("End `getAzkars` in |AzkarRepoImpl| Exception: ${e.runtimeType}");
+      Get.find<Logger>()
+          .e("End `getAzkars` in |AzkarRepoImpl| Exception: ${e.runtimeType}");
       return Left(getFailureFromException(e));
     }
   }
