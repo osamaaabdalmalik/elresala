@@ -1,9 +1,9 @@
+import 'package:elresala/core/constants/app_assets.dart';
+import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/utils/components/appbar/direction_aware.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:elresala/core/constants/app_colors.dart';
-import 'package:elresala/core/constants/app_assets.dart';
 
 class SliverAppBarWidget extends StatelessWidget {
   const SliverAppBarWidget({

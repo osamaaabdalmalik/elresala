@@ -8,7 +8,7 @@ abstract class AppAssets {
   // SVG
   static const String rootSVG = "assets/svg";
 
-  static const String imageSVG='$rootSVG/images';
+  static const String imageSVG = '$rootSVG/images';
   //
   static const String rootSVGIcon = "$rootSVG/icons";
   //

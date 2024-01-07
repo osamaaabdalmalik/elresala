@@ -43,6 +43,7 @@ class AzkarController extends GetxController {
         update();
       },
     );
-    Get.find<Logger>().w("End `getAzkars` in |AzkarController| $getAzkarsState");
+    Get.find<Logger>()
+        .w("End `getAzkars` in |AzkarController| $getAzkarsState");
   }
 }

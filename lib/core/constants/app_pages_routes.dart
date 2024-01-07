@@ -1,6 +1,7 @@
 import 'package:elresala/core/middleware/main_middleware.dart';
 import 'package:elresala/features/azkar/azkar_bindings.dart';
 import 'package:elresala/features/azkar/presentation/screens/azkar_screen.dart';
+import 'package:elresala/features/azkar/presentation/screens/content_azkar_page.dart';
 import 'package:elresala/features/doaa/doaa_bindings.dart';
 import 'package:elresala/features/doaa/presentation/screens/doaa_screen.dart';
 import 'package:elresala/features/hadith/hadith_bindings.dart';
@@ -30,6 +31,7 @@ abstract class AppPagesRoutes {
   static const String nonMuslimScreen = "/nonMuslimScreen";
   static const String surahScreen = "/surahScreen";
   static const String telawaScreen = "/telawaScreen";
+  static const String contentAzkarScreen = "/content_azkar_screen";
 
   static List<GetPage<dynamic>> appPages = [
     GetPage(
@@ -89,6 +91,11 @@ abstract class AppPagesRoutes {
     GetPage(
       name: telawaScreen,
       page: () => const TelawaScreen(),
+      transition: Transition.cupertino,
+    ),
+    GetPage(
+      name: contentAzkarScreen,
+      page: () => const ContentAzkarPage(),
       transition: Transition.cupertino,
     ),
   ];
