@@ -17,7 +17,7 @@ class HadithNumberWidget extends StatelessWidget {
           Image.asset(
             AppAssets.kZaghrafaIcon,
           ),
-          const Text('1', style: Styles.textStyleHadithNumber),
+          const Text('1', style: Styles.textStyle18Golden),
         ],
       ),
     );

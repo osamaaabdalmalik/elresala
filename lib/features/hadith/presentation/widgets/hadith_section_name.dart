@@ -21,7 +21,7 @@ class HadithSectionName extends StatelessWidget {
         child: Center(
           child: Text(
             hadithBookName,
-            style: Styles.textStyle22,
+            style: Styles.textStyle18Golden,
           ),
         ),
       ),

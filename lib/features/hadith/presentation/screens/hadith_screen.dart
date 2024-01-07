@@ -26,7 +26,7 @@ class HadithScreen extends GetView<HadithController> {
                     alignment: Alignment.center,
                     child: Text(
                       'Hadith',
-                      style: Styles.textStyle36,
+                      style: Styles.textStyle18Golden,
                     ),
                   ),
                   HadithSectionWidget(
@@ -93,7 +93,7 @@ class HadithSectionWidget extends StatelessWidget {
           child: Center(
             child: Text(
               hadithBookName,
-              style: Styles.textStyle36,
+              style: Styles.textStyle18Golden,
             ),
           ),
         ),

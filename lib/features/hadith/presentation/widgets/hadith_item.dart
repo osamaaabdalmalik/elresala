@@ -18,7 +18,7 @@ class HadithItemWidget extends StatelessWidget {
       ),
       child: Text(
         hadith,
-        style: Styles.textStyle18Godlen,
+        style: Styles.textStyle18Golden,
       ),
     );
   }

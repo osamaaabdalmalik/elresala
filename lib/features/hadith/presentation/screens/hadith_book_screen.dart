@@ -80,7 +80,7 @@ class HadithDetailsText extends StatelessWidget {
         textAlign: TextAlign.start,
         textDirection: textDirection,
         text: TextSpan(
-          style: Styles.textStyle18Godlen,
+          style: Styles.textStyle18Golden,
           children: [
             TextSpan(text: '$infoText : '),
             TextSpan(text: ' $detailsText ', style: Styles.textStyle18White),
