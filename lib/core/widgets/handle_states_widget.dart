@@ -86,10 +86,11 @@ class HandleStatesWidget extends StatelessWidget {
       case StateType.loading:
         {
           EasyLoaderService.showLoading();
-          return PopScope(
-            canPop: stateType != StateType.loading,
-            child: child,
-          );
+          // return PopScope(
+          //   canPop: stateType != StateType.loading,
+          //   child: child,
+          // );
+          return const SizedBox.shrink();
         }
       default:
         {
