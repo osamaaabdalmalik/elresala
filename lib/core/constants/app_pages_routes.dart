@@ -79,7 +79,7 @@ abstract class AppPagesRoutes {
     ),
     GetPage(
       name: nonMuslimScreen,
-      page: () => const NonMuslimScreen(),
+      page: () => const NonMuslimSectionScreen(),
       binding: NonMuslimBindings(),
       transition: Transition.cupertino,
     ),

@@ -2,6 +2,9 @@ abstract class AppAssets {
   // Images
   static const String rootImages = "assets/image";
 
+  //jsons
+  static const String rootjsons = "assets/json";
+
   //
   static const String image = "$rootImages/1.png";
 

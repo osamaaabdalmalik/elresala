@@ -1,13 +1,13 @@
 import 'package:elresala/core/constants/app_enums.dart';
 import 'package:elresala/core/helpers/get_state_from_failure.dart';
-import 'package:elresala/features/hadith/domain/entities/hadith_entity.dart';
+import 'package:elresala/features/non_muslim/data/models/course_model.dart';
 import 'package:elresala/features/non_muslim/domain/usecases/get_courses_use_case.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
 class NonMuslimController extends GetxController {
   // Data
-  List<Hadith> hadithes = [];
+  List<NonMuslimModel> hadithes = [];
 
   // States
   StateType getCoursesState = StateType.init;
@@ -43,6 +43,7 @@ class NonMuslimController extends GetxController {
         update();
       },
     );
-    Get.find<Logger>().w("End `getCourses` in |NonMuslimController| $getCoursesState");
+    Get.find<Logger>()
+        .w("End `getCourses` in |NonMuslimController| $getCoursesState");
   }
 }

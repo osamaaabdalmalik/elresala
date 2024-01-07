@@ -1,26 +1,30 @@
-import 'package:elresala/core/constants/app_assets.dart';
-import 'package:elresala/core/constants/app_colors.dart';
+import 'package:elresala/core/styles/text_styles.dart';
 import 'package:elresala/core/utils/components/appbar/direction_aware.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:elresala/core/constants/app_colors.dart';
+import 'package:elresala/core/constants/app_assets.dart';
 
 class SliverAppBarWidget extends StatelessWidget {
-  const SliverAppBarWidget({
-    super.key,
-    this.isSearch,
-    this.backgroundColor = AppColors.kPrimaryColor,
-    this.iconColor = AppColors.kWhiteColor,
-  });
+  const SliverAppBarWidget(
+      {super.key,
+      this.isSearch,
+      this.backgroundColor = AppColors.kPrimaryColor,
+      this.iconColor = AppColors.kWhiteColor,
+      this.title = '',
+      this.isPinned = false});
   final bool? isSearch;
   final Color backgroundColor;
   final Color iconColor;
+  final bool isPinned;
+  final String title;
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       automaticallyImplyLeading: false,
       backgroundColor: backgroundColor,
-      title: !Navigator.canPop(context)
+      leading: !Navigator.canPop(context)
           ? null
           : DirectionAware(
               // من شان تدوير الايقونة بزاوية 90
@@ -28,7 +32,10 @@ class SliverAppBarWidget extends StatelessWidget {
               child: GestureDetector(
                 onTap: _navigatorBack,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  padding: const EdgeInsets.only(
+                    left: 10,
+                    right: 25,
+                  ),
                   child: SvgPicture.asset(
                     AppAssets.kBackIcon,
                     color: iconColor,
@@ -36,6 +43,11 @@ class SliverAppBarWidget extends StatelessWidget {
                 ),
               ),
             ),
+      centerTitle: true,
+      title: Text(
+        title,
+        style: Styles.textStyle18Godlen,
+      ),
       actions: [
         isSearch == true
             ? Padding(
@@ -50,6 +62,7 @@ class SliverAppBarWidget extends StatelessWidget {
       floating: true,
       snap: true,
       elevation: 0,
+      pinned: isPinned,
     );
   }
 

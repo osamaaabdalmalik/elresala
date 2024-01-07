@@ -1,20 +1,67 @@
-import 'package:elresala/features/hadith/domain/entities/hadith_entity.dart';
+class NonMuslimModel {
+  String sectionName;
+  String sectionType;
+  List<IslamTopic> topics;
 
-// TODO This is example
-class HadithModel extends Hadith {
-  const HadithModel({
-    required super.name,
-    required super.arabicContent,
-    required super.content,
-    required super.teller,
+  NonMuslimModel({
+    required this.sectionName,
+    required this.sectionType,
+    required this.topics,
   });
 
-  factory HadithModel.fromJson(Map<String, dynamic> json) {
-    return HadithModel(
-      name: json['name'],
-      arabicContent: json['arabic_content'],
-      content: json['content'],
-      teller: json['teller'],
+  factory NonMuslimModel.fromJson(Map<String, dynamic> json) {
+    List<IslamTopic> topics = [];
+    if (json['topics'] != null) {
+      for (var topic in json['topics']) {
+        topics.add(IslamTopic.fromJson(topic));
+      }
+    }
+
+    return NonMuslimModel(
+      sectionName: json['sectionName'],
+      sectionType: json['sectionType'],
+      topics: topics,
+    );
+  }
+}
+
+class IslamTopic {
+  String header;
+  List<IslamNestedTopic> nestedTopics;
+
+  IslamTopic({
+    required this.header,
+    required this.nestedTopics,
+  });
+
+  factory IslamTopic.fromJson(Map<String, dynamic> json) {
+    List<IslamNestedTopic> nestedTopics = [];
+    if (json['nestedTopics'] != null) {
+      for (var nestedTopic in json['nestedTopics']) {
+        nestedTopics.add(IslamNestedTopic.fromJson(nestedTopic));
+      }
+    }
+
+    return IslamTopic(
+      header: json['header'],
+      nestedTopics: nestedTopics,
+    );
+  }
+}
+
+class IslamNestedTopic {
+  String title;
+  String body;
+
+  IslamNestedTopic({
+    required this.title,
+    required this.body,
+  });
+
+  factory IslamNestedTopic.fromJson(Map<String, dynamic> json) {
+    return IslamNestedTopic(
+      title: json['title'],
+      body: json['body'],
     );
   }
 }
