@@ -24,8 +24,7 @@ void main() async {
 }
 
 void initLang() {
-  String? sharedPrefLang =
-      Get.find<SharedPreferences>().getString(AppKeys.lang);
+  String? sharedPrefLang = Get.find<SharedPreferences>().getString(AppKeys.lang);
   ThemeData appTheme = AppThemes.themeEnglish;
   Locale language = const Locale("en");
   appTheme = AppThemes.themeEnglish;
@@ -45,8 +44,7 @@ void initLang() {
   }
   Get.put(language);
   Get.put(appTheme);
-  Get.find<SharedPreferences>()
-      .setString(AppKeys.lang, Get.deviceLocale!.languageCode);
+  Get.find<SharedPreferences>().setString(AppKeys.lang, Get.deviceLocale!.languageCode);
 }
 
 class MyApp extends StatelessWidget {
