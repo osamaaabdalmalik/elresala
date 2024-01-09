@@ -149,7 +149,11 @@ packages:
     dependency: "direct main"
     description:
       name: firebase_storage
+<<<<<<< Updated upstream
       sha256: "8126e80210c0841a5b8204590b40d6b9e87cded3d342a92833f484a564dcddb3"
+=======
+      sha256: "75e6cb6bed65138b5bbd86bfd7cf9bc9a175fb0c31aacc400e9203df117ffbe6"
+>>>>>>> Stashed changes
       url: "https://pub-web.flutter-io.cn"
     source: hosted
     version: "11.5.6"
@@ -232,6 +236,17 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+<<<<<<< Updated upstream
+=======
+  font_awesome_flutter:
+    dependency: "direct main"
+    description:
+      name: font_awesome_flutter
+      sha256: "52671aea66da73b58d42ec6d0912b727a42248dd9a7c76d6c20f275783c48c08"
+      url: "https://pub-web.flutter-io.cn"
+    source: hosted
+    version: "10.6.0"
+>>>>>>> Stashed changes
   get:
     dependency: "direct main"
     description:
@@ -348,10 +363,14 @@ packages:
     dependency: "direct main"
     description:
       name: path_provider
+<<<<<<< Updated upstream
       sha256: a1aa8aaa2542a6bc57e381f132af822420216c80d4781f7aa085ca3229208aaa
+=======
+      sha256: b27217933eeeba8ff24845c34003b003b2b22151de3c908d0e679e8fe1aa078b
+>>>>>>> Stashed changes
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   path_provider_android:
     dependency: transitive
     description:
@@ -380,10 +399,14 @@ packages:
     dependency: transitive
     description:
       name: path_provider_platform_interface
+<<<<<<< Updated upstream
       sha256: "94b1e0dd80970c1ce43d5d4e050a9918fce4f4a775e6142424c30a29a363265c"
+=======
+      sha256: "88f5779f72ba699763fa3a3b06aa4bf6de76c8e5de842cf6f29e2e06476c2334"
+>>>>>>> Stashed changes
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   path_provider_windows:
     dependency: transitive
     description:
@@ -412,7 +435,11 @@ packages:
     dependency: transitive
     description:
       name: platform
+<<<<<<< Updated upstream
       sha256: "0a279f0707af40c890e80b1e9df8bb761694c074ba7e1d4ab1bc4b728e200b59"
+=======
+      sha256: "12220bb4b65720483f8fa9450b4332347737cf8213dd2840d8b2c823e47243ec"
+>>>>>>> Stashed changes
       url: "https://pub-web.flutter-io.cn"
     source: hosted
     version: "3.1.3"
@@ -420,7 +447,11 @@ packages:
     dependency: transitive
     description:
       name: plugin_platform_interface
+<<<<<<< Updated upstream
       sha256: f4f88d4a900933e7267e2b353594774fc0d07fb072b47eedcd5b54e1ea3269f8
+=======
+      sha256: "4820fbfdb9478b1ebae27888254d445073732dae3d6ea81f0b7e06d5dedc3f02"
+>>>>>>> Stashed changes
       url: "https://pub-web.flutter-io.cn"
     source: hosted
     version: "2.1.7"
@@ -460,10 +491,14 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_platform_interface
+<<<<<<< Updated upstream
       sha256: d4ec5fc9ebb2f2e056c617112aa75dcf92fc2e4faaf2ae999caa297473f75d8a
+=======
+      sha256: "22e2ecac9419b4246d7c22bfbbda589e3acf5c0351137d87dd2939d984d37c3b"
+>>>>>>> Stashed changes
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.2"
   shared_preferences_web:
     dependency: transitive
     description:
@@ -553,26 +588,38 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics
+<<<<<<< Updated upstream
       sha256: "0f0c746dd2d6254a0057218ff980fc7f5670fd0fcf5e4db38a490d31eed4ad43"
+=======
+      sha256: "18f6690295af52d081f6808f2f7c69f0eed6d7e23a71539d75f4aeb8f0062172"
+>>>>>>> Stashed changes
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "1.1.9+1"
+    version: "1.1.9+2"
   vector_graphics_codec:
     dependency: transitive
     description:
       name: vector_graphics_codec
+<<<<<<< Updated upstream
       sha256: "0edf6d630d1bfd5589114138ed8fada3234deacc37966bec033d3047c29248b7"
+=======
+      sha256: "531d20465c10dfac7f5cd90b60bbe4dd9921f1ec4ca54c83ebb176dbacb7bb2d"
+>>>>>>> Stashed changes
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "1.1.9+1"
+    version: "1.1.9+2"
   vector_graphics_compiler:
     dependency: transitive
     description:
       name: vector_graphics_compiler
+<<<<<<< Updated upstream
       sha256: d24333727332d9bd20990f1483af4e09abdb9b1fc7c3db940b56ab5c42790c26
+=======
+      sha256: "03012b0a33775c5530576b70240308080e1d5050f0faf000118c20e6463bc0ad"
+>>>>>>> Stashed changes
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "1.1.9+1"
+    version: "1.1.9+2"
   vector_math:
     dependency: transitive
     description:
@@ -593,7 +640,11 @@ packages:
     dependency: transitive
     description:
       name: win32
+<<<<<<< Updated upstream
       sha256: b0f37db61ba2f2e9b7a78a1caece0052564d1bc70668156cf3a29d676fe4e574
+=======
+      sha256: "464f5674532865248444b4c3daca12bd9bf2d7c47f759ce2617986e7229494a8"
+>>>>>>> Stashed changes
       url: "https://pub-web.flutter-io.cn"
     source: hosted
     version: "5.1.1"
@@ -601,7 +652,11 @@ packages:
     dependency: transitive
     description:
       name: xdg_directories
+<<<<<<< Updated upstream
       sha256: "589ada45ba9e39405c198fe34eb0f607cddb2108527e658136120892beac46d2"
+=======
+      sha256: faea9dee56b520b55a566385b84f2e8de55e7496104adada9962e0bd11bcff1d
+>>>>>>> Stashed changes
       url: "https://pub-web.flutter-io.cn"
     source: hosted
     version: "1.0.3"
