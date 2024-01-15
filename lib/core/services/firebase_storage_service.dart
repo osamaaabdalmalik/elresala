@@ -43,17 +43,35 @@ class FirebaseStorageService extends GetxService {
       Get.find<Logger>().i("Start `getInfoFilesOfLanguage` in |FileService|");
       ListResult result = await _storage.ref(language).listAll();
 
+      List<String> names = result.items.map((item) => item.name).toList();
       List<String> downloadURLs = await Future.wait(
         result.items.map((item) => item.getDownloadURL()),
       );
-      List<String> names = result.items.map((item) => item.name).toList();
       List<InfoFile> infoFiles = [];
+      List<InfoFile> prayInfoFiles = [];
       for (int i = 0; i < names.length; i++) {
-        infoFiles.add(InfoFile(
-          name: "$language/${names[i]}",
-          downloadUrl: downloadURLs[i],
-        ));
+        if (names[i] == 'pray.txt') {
+          names.remove(names[i]);
+          downloadURLs.remove(downloadURLs[i]);
+          ListResult result1 = await _storage.ref('$language/pray').listAll();
+          List<String> names1 = result1.items.map((item) => item.name).toList();
+          List<String> prayDownloadURLs = await Future.wait(
+            result1.items.map((item) => item.getDownloadURL()),
+          );
+          for (int j = 0; j < names1.length; j++) {
+            prayInfoFiles.add(InfoFile(
+              name: "$language/pray/${names1[j]}",
+              downloadUrl: prayDownloadURLs[j],
+            ));
+          }
+        } else {
+          infoFiles.add(InfoFile(
+            name: "$language/${names[i]}",
+            downloadUrl: downloadURLs[i],
+          ));
+        }
       }
+      infoFiles = [...infoFiles, ...prayInfoFiles];
       Get.find<Logger>().w("End `getInfoFilesOfLanguage` in |FileService|");
       return infoFiles;
     } catch (e) {
@@ -127,8 +145,8 @@ class FirebaseStorageService extends GetxService {
       await sharedPreferencesService.setData(key: "$language is Downloaded", value: true);
       Get.find<Logger>().w("End `downloadFiles` in |FileService|");
       return const Right(unit);
-    } catch (e) {
-      Get.find<Logger>().e("End `downloadFiles` in |FileService| Exception: ${e.runtimeType}");
+    } catch (s, e) {
+      Get.find<Logger>().e("End `downloadFiles` in |FileService| Exception: $s");
       return Left(getFailureFromException(e));
     }
   }
