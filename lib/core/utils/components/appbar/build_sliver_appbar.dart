@@ -1,24 +1,29 @@
+import 'package:elresala/core/constants/app_assets.dart';
+import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/styles/text_styles.dart';
 import 'package:elresala/core/utils/components/appbar/direction_aware.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:elresala/core/constants/app_colors.dart';
-import 'package:elresala/core/constants/app_assets.dart';
 
 class SliverAppBarWidget extends StatelessWidget {
-  const SliverAppBarWidget(
-      {super.key,
-      this.isSearch,
-      this.backgroundColor = AppColors.kPrimaryColor,
-      this.iconColor = AppColors.kWhiteColor,
-      this.title = '',
-      this.isPinned = false});
   final bool? isSearch;
   final Color backgroundColor;
   final Color iconColor;
   final bool isPinned;
   final String title;
+  final Function()? onTranslateIconTab;
+
+  const SliverAppBarWidget({
+    super.key,
+    this.isSearch,
+    this.backgroundColor = AppColors.kPrimaryColor,
+    this.iconColor = AppColors.kWhiteColor,
+    this.title = '',
+    this.isPinned = false,
+    this.onTranslateIconTab,
+  });
+
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -30,7 +35,7 @@ class SliverAppBarWidget extends StatelessWidget {
               // من شان تدوير الايقونة بزاوية 90
               //DirectionAware for rotate the icon to other side rtl or ltr
               child: GestureDetector(
-                onTap: _navigatorBack,
+                onTap: () => Get.back(),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 10,
@@ -58,15 +63,22 @@ class SliverAppBarWidget extends StatelessWidget {
                 ),
               )
             : const SizedBox(),
+        onTranslateIconTab != null
+            ? InkWell(
+                onTap: onTranslateIconTab,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: SvgPicture.asset(
+                    AppAssets.kTranslateIcon,
+                  ),
+                ),
+              )
+            : const SizedBox(),
       ],
       floating: true,
       snap: true,
       elevation: 0,
       pinned: isPinned,
     );
-  }
-
-  _navigatorBack() {
-    Get.back();
   }
 }

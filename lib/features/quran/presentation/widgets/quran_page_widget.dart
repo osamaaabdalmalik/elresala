@@ -1,10 +1,11 @@
+import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
-import 'package:elresala/core/constants/app_colors.dart';
-
 class QuranPageWidget extends StatelessWidget {
-  const QuranPageWidget({super.key});
+  final int number;
+
+  const QuranPageWidget({required this.number, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +19,12 @@ class QuranPageWidget extends StatelessWidget {
             color: AppColors.kGoldenColor,
             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
           ),
-          child: const Center(
-              child: Text(
-            '1',
-            style: Styles.textStyleQuranPageNumber,
-          )),
+          child: Center(
+            child: Text(
+              number.toString(),
+              style: Styles.textStyleQuranPageNumber,
+            ),
+          ),
           // Add child widgets here if needed
         ),
       ],

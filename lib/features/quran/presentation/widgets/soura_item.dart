@@ -1,8 +1,7 @@
-import 'package:elresala/core/constants/app_assets.dart';
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/constants/app_pages_routes.dart';
+import 'package:elresala/features/quran/presentation/controller/quran_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class SouraItem extends StatelessWidget {
@@ -16,6 +15,7 @@ class SouraItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        Get.find<QuranController>().currentAyat = Get.find<QuranController>().surahs[souraNumber - 1].ayat;
         Get.toNamed(AppPagesRoutes.surahScreen);
       },
       child: Container(
@@ -45,22 +45,22 @@ class SouraItem extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-          const Spacer(),
-          const Text(
-            'Markah',
-            style: TextStyle(
-              color: AppColors.kGoldenColor,
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-            ),
-            textAlign: TextAlign.end,
-          ),
-          const SizedBox(
-            width: 30,
-          ),
-          SvgPicture.asset(
-            isSaved == true ? AppAssets.kBookmarkFillIcon : AppAssets.kBookmarkIcon,
-          ),
+          // const Spacer(),
+          // const Text(
+          //   'Markah',
+          //   style: TextStyle(
+          //     color: AppColors.kGoldenColor,
+          //     fontSize: 12,
+          //     fontWeight: FontWeight.w400,
+          //   ),
+          //   textAlign: TextAlign.end,
+          // ),
+          // const SizedBox(
+          //   width: 30,
+          // ),
+          // SvgPicture.asset(
+          //   isSaved == true ? AppAssets.kBookmarkFillIcon : AppAssets.kBookmarkIcon,
+          // ),
         ]),
       ),
     );

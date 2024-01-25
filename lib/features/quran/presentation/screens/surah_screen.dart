@@ -1,31 +1,55 @@
-
+import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/utils/components/appbar/build_sliver_appbar.dart';
-import 'package:elresala/features/quran/presentation/widgets/quran_view_build_sliver_content.dart';
+import 'package:elresala/features/quran/presentation/controller/quran_controller.dart';
+import 'package:elresala/features/quran/presentation/widgets/aya_container.dart';
+import 'package:elresala/features/quran/presentation/widgets/basmala_image.dart';
 import 'package:elresala/features/quran/presentation/widgets/telawa_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:elresala/core/constants/app_colors.dart';
+import 'package:get/get.dart';
 
 class SurahScreen extends StatelessWidget {
   const SurahScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
           Expanded(
             child: CustomScrollView(
               slivers: [
                 SliverAppBarWidget(
-                    isSearch: false,
-                    backgroundColor: AppColors.kWhiteColor,
-                    iconColor: AppColors.kPrimaryColor),
-                QuranViewSliver(),
+                  isSearch: false,
+                  backgroundColor: AppColors.kWhiteColor,
+                  iconColor: AppColors.kPrimaryColor,
+                  onTranslateIconTab: () {
+
+                  },
+                ),
+                SliverToBoxAdapter(
+                  child: SingleChildScrollView(
+                    child: GetBuilder<QuranController>(
+                      builder: (controller) => Column(
+                        children: [
+                          const BasmalaImage(),
+                          const SizedBox(height: 12),
+                          ...List.generate(
+                            controller.currentAyat.length,
+                            (index) => AyaContainer(
+                              number: index + 1,
+                              ayah: controller.currentAyat[index],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
-          SizedBox(height: .1),
-          TelawaWidget(),
+          const SizedBox(height: .1),
+          const TelawaWidget(),
         ],
       ),
     );
