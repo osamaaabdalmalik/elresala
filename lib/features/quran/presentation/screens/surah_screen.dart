@@ -18,13 +18,11 @@ class SurahScreen extends StatelessWidget {
           Expanded(
             child: CustomScrollView(
               slivers: [
-                SliverAppBarWidget(
+                const SliverAppBarWidget(
                   isSearch: false,
                   backgroundColor: AppColors.kWhiteColor,
                   iconColor: AppColors.kPrimaryColor,
-                  onTranslateIconTab: () {
-
-                  },
+                  hasTranslator: true,
                 ),
                 SliverToBoxAdapter(
                   child: SingleChildScrollView(

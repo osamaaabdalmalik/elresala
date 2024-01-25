@@ -22,47 +22,29 @@ class PrimarySelectItem<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            labelText,
-            style: Theme.of(context).textTheme.titleSmall!.copyWith(
-              color: AppColors.gray,
-              fontSize: 14,
-            ),
+    return DropdownButtonHideUnderline(
+      child: DropdownButton2<T>(
+        isExpanded: true,
+        hint: Text(
+          hintText,
+          style: TextStyle(color: AppColors.gray.withOpacity(0.5)),
+        ),
+        items: items,
+        value: selectedItem,
+        onChanged: onChanged,
+        iconStyleData: const IconStyleData(
+          icon: Icon(Icons.keyboard_arrow_down_rounded),
+        ),
+        buttonStyleData: ButtonStyleData(
+          padding: EdgeInsets.only(
+            left: Get.locale!.languageCode == 'ar' ? 10.w : 0,
+            right: Get.locale!.languageCode == 'en' ? 10.w : 0,
           ),
-          SizedBox(
-            height: 8.h,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.r),
+            color: AppColors.primary20,
           ),
-          DropdownButtonHideUnderline(
-            child: DropdownButton2<T>(
-              isExpanded: true,
-              hint: Text(
-                hintText,
-                style: TextStyle(color: AppColors.gray.withOpacity(0.5)),
-              ),
-              items: items,
-              value: selectedItem,
-              onChanged: onChanged,
-              iconStyleData: const IconStyleData(
-                icon: Icon(Icons.keyboard_arrow_down_rounded),
-              ),
-              buttonStyleData: ButtonStyleData(
-                padding: EdgeInsets.only(
-                  left: Get.locale!.languageCode == 'ar' ? 10.w : 0,
-                  right: Get.locale!.languageCode == 'en' ? 10.w : 0,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.r),
-                  color: AppColors.primary20,
-                ),
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

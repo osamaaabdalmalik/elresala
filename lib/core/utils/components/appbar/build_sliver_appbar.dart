@@ -2,6 +2,8 @@ import 'package:elresala/core/constants/app_assets.dart';
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/styles/text_styles.dart';
 import 'package:elresala/core/utils/components/appbar/direction_aware.dart';
+import 'package:elresala/core/widgets/primary_select_item.dart';
+import 'package:elresala/features/quran/presentation/controller/quran_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -12,7 +14,7 @@ class SliverAppBarWidget extends StatelessWidget {
   final Color iconColor;
   final bool isPinned;
   final String title;
-  final Function()? onTranslateIconTab;
+  final bool hasTranslator;
 
   const SliverAppBarWidget({
     super.key,
@@ -21,7 +23,7 @@ class SliverAppBarWidget extends StatelessWidget {
     this.iconColor = AppColors.kWhiteColor,
     this.title = '',
     this.isPinned = false,
-    this.onTranslateIconTab,
+    this.hasTranslator = false,
   });
 
   @override
@@ -63,17 +65,36 @@ class SliverAppBarWidget extends StatelessWidget {
                 ),
               )
             : const SizedBox(),
-        onTranslateIconTab != null
-            ? InkWell(
-                onTap: onTranslateIconTab,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 20),
-                  child: SvgPicture.asset(
-                    AppAssets.kTranslateIcon,
+        if (hasTranslator)
+          SizedBox(
+            width: 0.5 * Get.width,
+            child: GetBuilder<QuranController>(
+              id: "Translator Select",
+              builder: (controller) => PrimarySelectItem<int>(
+                labelText: "Translator",
+                hintText: "Select",
+                onChanged: (value) {
+                  controller.selectedTranslator = value ?? controller.selectedTranslator;
+                  controller.update(["Translator Select", "ayaNonArabic"]);
+                },
+                items: const [
+                  DropdownMenuItem<int>(
+                    value: 1,
+                    child: Text('Translator 1'),
                   ),
-                ),
-              )
-            : const SizedBox(),
+                  DropdownMenuItem<int>(
+                    value: 2,
+                    child: Text('Translator 2'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 3,
+                    child: Text('Translator 3'),
+                  ),
+                ],
+                selectedItem: controller.selectedTranslator,
+              ),
+            ),
+          ),
       ],
       floating: true,
       snap: true,
