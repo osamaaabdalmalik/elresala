@@ -18,6 +18,7 @@ class QuranController extends GetxController {
 
   // Primitive
   String validationMessage = '';
+  int selectedTranslator = 1;
 
   @override
   void onInit() async {
@@ -56,9 +57,11 @@ class QuranController extends GetxController {
     update();
     resultAyat = [];
     for (var surah in surahs) {
-      resultAyat = surah.ayat.where(
-        (element) => element.arabic.contains(query),
-      ).toList();
+      resultAyat = surah.ayat
+          .where(
+            (element) => element.arabic.contains(query),
+          )
+          .toList();
     }
     searchAboutAyahState = StateType.success;
     update();
