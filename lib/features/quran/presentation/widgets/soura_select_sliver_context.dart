@@ -3,7 +3,6 @@ import 'package:elresala/core/widgets/handle_states_widget.dart';
 import 'package:elresala/core/widgets/primary_shimmer.dart';
 import 'package:elresala/features/quran/domain/entities/surah_entity.dart';
 import 'package:elresala/features/quran/presentation/controller/quran_controller.dart';
-import 'package:elresala/features/quran/presentation/widgets/opacity_container_text.dart';
 import 'package:elresala/features/quran/presentation/widgets/soura_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,16 +22,16 @@ class SurahSelectSliver extends StatelessWidget {
         builder: (controller) => SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                height: const Size.fromHeight(kToolbarHeight).height,
-                color: AppColors.kPrimaryColor,
-                child: const Row(
-                  children: [
-                    OpacityContainerText(text: 'Continue reading'),
-                    OpacityContainerText(text: 'Saved'),
-                  ],
-                ),
-              ),
+              // Container(
+              //   height: const Size.fromHeight(kToolbarHeight).height,
+              //   color: AppColors.kPrimaryColor,
+              //   child: const Row(
+              //     children: [
+              //       OpacityContainerText(text: 'Continue reading'),
+              //       OpacityContainerText(text: 'Saved'),
+              //     ],
+              //   ),
+              // ),
               Container(
                 color: AppColors.kPrimaryColor,
                 child: Stack(
