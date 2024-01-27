@@ -1,10 +1,8 @@
 import 'dart:convert';
 
 import 'package:elresala/core/constants/app_assets.dart';
-import 'package:elresala/core/constants/app_keys.dart';
 import 'package:elresala/core/services/firebase_storage_service.dart';
 import 'package:elresala/core/services/shared_preferences_service.dart';
-import 'package:elresala/features/hadith/data/models/hadith_model.dart';
 import 'package:elresala/features/non_muslim/data/models/course_model.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -26,11 +24,9 @@ class NonMuslimLocalDataSourceImpl extends NonMuslimLocalDataSource {
   @override
   Future<List<NonMuslimModel>> getCourses() async {
     try {
-      Get.find<Logger>()
-          .i("Start `getCourses` in |NonMuslimLocalDataSourceImpl|");
+      Get.find<Logger>().i("Start `getCourses` in |NonMuslimLocalDataSourceImpl|");
       // String? fileContent = await firebaseStorageService.readFile(name: AppKeys.muslims);
-      String? fileContent = await rootBundle
-          .loadString('${AppAssets.rootjsons}/non-Muslims.json');
+      String? fileContent = await rootBundle.loadString('${AppAssets.rootjsons}/non-Muslims.json');
 
       /// TODO get data from file depend on content and convert to models
       /// example:
@@ -43,8 +39,7 @@ class NonMuslimLocalDataSourceImpl extends NonMuslimLocalDataSource {
           )
           .toList();
       // /  `
-      Get.find<Logger>()
-          .w("End `getCourses` in |NonMuslimLocalDataSourceImpl|");
+      Get.find<Logger>().w("End `getCourses` in |NonMuslimLocalDataSourceImpl|");
       return Future.value(hadithes /** hadithes **/);
     } catch (e) {
       Get.find<Logger>().e(
