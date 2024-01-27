@@ -1,11 +1,7 @@
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/constants/app_enums.dart';
-import 'package:elresala/core/constants/app_translation_keys.dart';
-import 'package:elresala/core/widgets/primary_loader.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
-import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class PrimaryDialog extends StatelessWidget {
   final String title;
