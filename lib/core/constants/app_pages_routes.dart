@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:elresala/core/middleware/main_middleware.dart';
 import 'package:elresala/features/azkar/azkar_bindings.dart';
 import 'package:elresala/features/azkar/presentation/screens/azkar_screen.dart';
@@ -18,6 +20,8 @@ import 'package:elresala/features/quran/presentation/screens/surah_screen.dart';
 import 'package:elresala/features/quran/presentation/screens/telawa_screen.dart';
 import 'package:elresala/features/quran/quran_bindings.dart';
 import 'package:get/get.dart';
+import '../../features/advanced_sites/bindings/advanced_learning.dart';
+import '../../features/advanced_sites/screens/advanced_sites.dart';
 
 abstract class AppPagesRoutes {
   // Tabs Screens
@@ -26,6 +30,8 @@ abstract class AppPagesRoutes {
   static const String quranScreen = "/quranScreen";
   static const String hadithScreen = "/hadithScreen";
   static const String azkarScreen = "/azkarScreen";
+  static const String advanced_learning = "/advanced_learning_Screen";
+
   static const String doaaScreen = "/doaaScreen";
   static const String muslimScreen = "/muslimScreen";
   static const String nonMuslimScreen = "/nonMuslimScreen";
@@ -71,6 +77,18 @@ abstract class AppPagesRoutes {
       binding: DoaaBindings(),
       transition: Transition.cupertino,
     ),
+
+    // =========================================================
+
+    GetPage(
+      name: advanced_learning,
+      page: () => const Advanced_Sites(),
+      binding: Advanced_LearningBindings(),
+      transition: Transition.cupertino,
+    ),
+
+    // =========================================================
+
     GetPage(
       name: muslimScreen,
       page: () => const MuslimScreen(),
