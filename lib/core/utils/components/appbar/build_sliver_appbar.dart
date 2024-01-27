@@ -1,24 +1,31 @@
+import 'package:elresala/core/constants/app_assets.dart';
+import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/styles/text_styles.dart';
 import 'package:elresala/core/utils/components/appbar/direction_aware.dart';
+import 'package:elresala/core/widgets/primary_select_item.dart';
+import 'package:elresala/features/quran/presentation/controller/quran_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:elresala/core/constants/app_colors.dart';
-import 'package:elresala/core/constants/app_assets.dart';
 
 class SliverAppBarWidget extends StatelessWidget {
-  const SliverAppBarWidget(
-      {super.key,
-      this.isSearch,
-      this.backgroundColor = AppColors.kPrimaryColor,
-      this.iconColor = AppColors.kWhiteColor,
-      this.title = '',
-      this.isPinned = false});
   final bool? isSearch;
   final Color backgroundColor;
   final Color iconColor;
   final bool isPinned;
   final String title;
+  final bool hasTranslator;
+
+  const SliverAppBarWidget({
+    super.key,
+    this.isSearch,
+    this.backgroundColor = AppColors.kPrimaryColor,
+    this.iconColor = AppColors.kWhiteColor,
+    this.title = '',
+    this.isPinned = false,
+    this.hasTranslator = false,
+  });
+
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -30,7 +37,7 @@ class SliverAppBarWidget extends StatelessWidget {
               // من شان تدوير الايقونة بزاوية 90
               //DirectionAware for rotate the icon to other side rtl or ltr
               child: GestureDetector(
-                onTap: _navigatorBack,
+                onTap: () => Get.back(),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 10,
@@ -58,15 +65,41 @@ class SliverAppBarWidget extends StatelessWidget {
                 ),
               )
             : const SizedBox(),
+        if (hasTranslator)
+          SizedBox(
+            width: 0.5 * Get.width,
+            child: GetBuilder<QuranController>(
+              id: "Translator Select",
+              builder: (controller) => PrimarySelectItem<int>(
+                labelText: "Translator",
+                hintText: "Select",
+                onChanged: (value) {
+                  controller.selectedTranslator = value ?? controller.selectedTranslator;
+                  controller.update(["Translator Select", "ayaNonArabic"]);
+                },
+                items: const [
+                  DropdownMenuItem<int>(
+                    value: 1,
+                    child: Text('Translator 1'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 2,
+                    child: Text('Translator 2'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 3,
+                    child: Text('Translator 3'),
+                  ),
+                ],
+                selectedItem: controller.selectedTranslator,
+              ),
+            ),
+          ),
       ],
       floating: true,
       snap: true,
       elevation: 0,
       pinned: isPinned,
     );
-  }
-
-  _navigatorBack() {
-    Get.back();
   }
 }
