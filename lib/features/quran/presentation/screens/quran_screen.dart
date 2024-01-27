@@ -12,7 +12,7 @@ class QuranScreen extends GetView<QuranController> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverAppBarWidget(isSearch: true),
+          const SliverAppBarWidget(title: "Quran"),
           SurahSelectSliver(surahs: controller.surahs),
         ],
       ),

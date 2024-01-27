@@ -45,21 +45,6 @@ class TelawaWidget extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              SvgPicture.asset(
-                AppAssets.kCopyIcon,
-                color: AppColors.kPrimaryColor,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              SvgPicture.asset(AppAssets.kTranslateIcon),
-              const SizedBox(
-                width: 8,
-              ),
-              SvgPicture.asset(AppAssets.kEyeViewFillIcon),
-              const SizedBox(
-                width: 8,
-              ),
               SvgPicture.asset(AppAssets.kShareIcon),
             ],
           ),
