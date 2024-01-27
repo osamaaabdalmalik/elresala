@@ -16,7 +16,7 @@ class AyaContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        QuranPageWidget(number: number),
+        QuranPageWidget(number: number, ayah: ayah),
         const SizedBox(height: 12),
         AyaArabicContainer(ayaArabic: ayah.arabic, ayaNumber: number),
         const SizedBox(height: 12),

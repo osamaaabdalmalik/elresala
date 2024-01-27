@@ -56,15 +56,15 @@ class SliverAppBarWidget extends StatelessWidget {
         style: Styles.textStyle18Godlen,
       ),
       actions: [
-        isSearch == true
-            ? Padding(
-                padding: const EdgeInsets.only(right: 20),
-                child: SvgPicture.asset(
-                  AppAssets.kSearchIcon,
-                  color: iconColor,
-                ),
-              )
-            : const SizedBox(),
+        // isSearch == true
+        //     ? Padding(
+        //         padding: const EdgeInsets.only(right: 20),
+        //         child: SvgPicture.asset(
+        //           AppAssets.kSearchIcon,
+        //           color: iconColor,
+        //         ),
+        //       )
+        //     : const SizedBox(),
         if (hasTranslator)
           SizedBox(
             width: 0.5 * Get.width,
