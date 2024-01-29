@@ -17,11 +17,9 @@ class IslamReligionPage extends StatelessWidget {
       body: GetBuilder<HomeControllerImp>(
           builder: (controller) => Container(
               margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-              child: GridView.builder(
+              child: ListView.builder(
                   padding: const EdgeInsets.all(5),
                   itemCount: controller.data.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1, childAspectRatio: 3),
                   itemBuilder: (context, index) {
                     return InkwellCustom(
                       catigory: false,
