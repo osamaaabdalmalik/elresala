@@ -16,12 +16,9 @@ class ArticalScreen extends StatelessWidget {
         body: GetBuilder<ArticalControllerImp>(
             builder: (controller) => Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-                child: GridView.builder(
+                child: ListView.builder(
                     padding: const EdgeInsets.all(5),
                     itemCount: controller.dataArticalKey.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 1, childAspectRatio: 3),
                     itemBuilder: (context, index) {
                       return InkwellCustom(
                         catigory: false,

@@ -16,12 +16,9 @@ class BookScreen extends StatelessWidget {
         body: GetBuilder<BookControllerImp>(
             builder: (controller) => Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-                child: GridView.builder(
+                child: ListView.builder(
                     padding: const EdgeInsets.all(5),
                     itemCount: controller.dataBookKey.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 1, childAspectRatio: 3),
                     itemBuilder: (context, index) {
                       return InkwellCustom(
                         catigory: false,

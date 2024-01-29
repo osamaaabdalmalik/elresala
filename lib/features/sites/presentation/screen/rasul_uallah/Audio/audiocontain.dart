@@ -25,12 +25,9 @@ class AudioContainPage extends StatelessWidget {
         body: GetBuilder<AudioControllerImp>(
             builder: ((controller) => Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-                child: GridView.builder(
+                child: ListView.builder(
                     padding: const EdgeInsets.all(5),
                     itemCount: itemCount,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 1, childAspectRatio: 3),
                     itemBuilder: (context, index) {
                       return InkwellCustom(
                         catigory: false,

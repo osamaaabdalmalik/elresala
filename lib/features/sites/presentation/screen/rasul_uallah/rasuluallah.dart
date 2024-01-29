@@ -17,10 +17,8 @@ class RasuluallahPage extends StatelessWidget {
       body: GetBuilder<HomeControllerImp>(
           builder: (controller) => Container(
               margin: const EdgeInsets.only(top: 10, right: 5, left: 5),
-              child: GridView.builder(
+              child: ListView.builder(
                   itemCount: controller.data.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1, childAspectRatio: 4),
                   itemBuilder: (context, index) {
                     return InkwellCustom(
                       catigory: true,

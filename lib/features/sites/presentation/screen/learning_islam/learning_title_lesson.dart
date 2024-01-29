@@ -1,28 +1,26 @@
-import 'package:elresala/core/constants/app_colors.dart';
-import 'package:elresala/features/sites/presentation/controller/rasul_uallah/articalcontroller.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:elresala/features/sites/presentation/controller/learning_islam.dart';
+import 'package:elresala/features/sites/presentation/widget/appbar.dart';
 import 'package:elresala/features/sites/presentation/widget/artical_custom.dart';
 import 'package:elresala/features/sites/presentation/widget/inkwell_custom.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class ArticalContainPage extends StatelessWidget {
+class LearningTitleLessonPage extends StatelessWidget {
   final int itemCount;
   final List dataText;
-  final List onTap;
-  const ArticalContainPage(
-      {super.key,
-      required this.itemCount,
-      required this.dataText,
-      required this.onTap});
+  const LearningTitleLessonPage({
+    super.key,
+    required this.itemCount,
+    required this.dataText,
+  });
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ArticalControllerImp());
+    Get.put(LearningIslamControllerImp());
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.kPrimaryColor,
-        ),
-        body: GetBuilder<ArticalControllerImp>(
+        appBar:
+            const AppBarCustom(title: 'Learning islam').customAppBar(context),
+        body: GetBuilder<LearningIslamControllerImp>(
             builder: ((controller) => Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                 child: ListView.builder(
@@ -31,10 +29,10 @@ class ArticalContainPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return InkwellCustom(
                         catigory: false,
-                        dataText: dataText[index],
+                        dataText: dataText[index]['title'],
                         onTap: () {
                           Get.to(ArticalCustom(
-                            dataText: onTap[index],
+                            dataText: dataText[index]['lines'],
                           ));
                         },
                       );
