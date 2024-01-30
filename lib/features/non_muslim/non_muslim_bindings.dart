@@ -14,7 +14,7 @@ class NonMuslimBindings extends Bindings {
     Get.put<NonMuslimLocalDataSource>(
       NonMuslimLocalDataSourceImpl(
         sharedPreferencesService: Get.find(),
-        firebaseStorageService: Get.find(),
+        archiveService: Get.find(),
       ),
     );
     Get.put<NonMuslimRepo>(

@@ -1,7 +1,7 @@
 import 'package:elresala/core/helpers/network_info.dart';
 import 'package:elresala/core/services/api_service.dart';
+import 'package:elresala/core/services/archive_service.dart';
 import 'package:elresala/core/services/easy_loader_service.dart';
-import 'package:elresala/core/services/firebase_storage_service.dart';
 import 'package:elresala/core/services/shared_preferences_service.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -23,10 +23,7 @@ class InitialBindings extends Bindings {
       ),
     );
     Get.put(
-      FirebaseStorageService(
-        apiService: Get.find(),
-        sharedPreferencesService: Get.find(),
-      ),
+      ArchiveService(sharedPreferencesService: Get.find()),
     );
   }
 }

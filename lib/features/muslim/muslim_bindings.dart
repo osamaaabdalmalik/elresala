@@ -14,7 +14,7 @@ class MuslimBindings extends Bindings {
     Get.put<MuslimLocalDataSource>(
       MuslimLocalDataSourceImpl(
         sharedPreferencesService: Get.find(),
-        firebaseStorageService: Get.find(),
+        archiveService: Get.find(),
       ),
     );
     Get.put<MuslimRepo>(

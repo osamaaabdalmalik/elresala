@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:elresala/core/constants/app_keys.dart';
-import 'package:elresala/core/services/firebase_storage_service.dart';
+import 'package:elresala/core/services/archive_service.dart';
 import 'package:elresala/core/services/shared_preferences_service.dart';
 import 'package:elresala/features/quran/data/models/surah_model.dart';
 import 'package:get/get.dart';
@@ -13,19 +13,18 @@ abstract class QuranLocalDataSource {
 
 class QuranLocalDataSourceImpl extends QuranLocalDataSource {
   final SharedPreferencesService sharedPreferencesService;
-  final FirebaseStorageService firebaseStorageService;
+  final ArchiveService archiveService;
 
   QuranLocalDataSourceImpl({
     required this.sharedPreferencesService,
-    required this.firebaseStorageService,
+    required this.archiveService,
   });
 
   @override
   Future<List<SurahModel>> getSurahs() async {
     try {
       Get.find<Logger>().i("Start `getSurahs` in |QuranLocalDataSourceImpl|");
-      String? quranJson =
-          await firebaseStorageService.readFile(name: AppKeys.quran);
+      String? quranJson = await archiveService.readFile(name: AppKeys.quran);
       List<SurahModel> surahs = [];
       if (quranJson != null) {
         var jsonData = json.decode(quranJson);
