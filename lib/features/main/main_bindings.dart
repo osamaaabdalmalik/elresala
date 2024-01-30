@@ -1,3 +1,4 @@
+import 'package:elresala/core/services/archive_service.dart';
 import 'package:elresala/features/main/data/data_sources/main_local_data_source.dart';
 import 'package:elresala/features/main/data/data_sources/main_remote_data_source.dart';
 import 'package:elresala/features/main/data/repository/main_repo_impl.dart';
@@ -22,5 +23,8 @@ class MainBindings extends Bindings {
     );
 
     Get.put(MainController());
+    Get.put(
+      ArchiveService(sharedPreferencesService: Get.find()),
+    );
   }
 }
