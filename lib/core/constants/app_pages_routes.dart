@@ -1,11 +1,9 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:elresala/core/middleware/main_middleware.dart';
-import 'package:elresala/features/azkar/azkar_bindings.dart';
-import 'package:elresala/features/azkar/presentation/screens/azkar_screen.dart';
-import 'package:elresala/features/azkar/presentation/screens/content_azkar_page.dart';
-import 'package:elresala/features/doaa/doaa_bindings.dart';
-import 'package:elresala/features/doaa/presentation/screens/doaa_screen.dart';
+import 'package:elresala/features/azkar_doaa/azkar_doaa_bindings.dart';
+import 'package:elresala/features/azkar_doaa/presentation/screens/azkar_doaa_screen.dart';
+import 'package:elresala/features/azkar_doaa/presentation/screens/content_azkar_screen.dart';
 import 'package:elresala/features/hadith/hadith_bindings.dart';
 import 'package:elresala/features/hadith/presentation/screens/hadith_screen.dart';
 import 'package:elresala/features/main/main_bindings.dart';
@@ -37,7 +35,7 @@ abstract class AppPagesRoutes {
   static const String nonMuslimScreen = "/nonMuslimScreen";
   static const String surahScreen = "/surahScreen";
   static const String telawaScreen = "/telawaScreen";
-  static const String contentAzkarScreen = "/content_azkar_screen";
+  static const String contentAzkarDoaasScreen = "/content_azkar_doaas_screen";
 
   static List<GetPage<dynamic>> appPages = [
     GetPage(
@@ -67,14 +65,8 @@ abstract class AppPagesRoutes {
     ),
     GetPage(
       name: azkarScreen,
-      page: () => const AzkarScreen(),
-      binding: AzkarBindings(),
-      transition: Transition.cupertino,
-    ),
-    GetPage(
-      name: doaaScreen,
-      page: () => const DoaaScreen(),
-      binding: DoaaBindings(),
+      page: () => const AzkarDoaaScreen(),
+      binding: AzkarDoaaBindings(),
       transition: Transition.cupertino,
     ),
 
@@ -112,8 +104,8 @@ abstract class AppPagesRoutes {
       transition: Transition.cupertino,
     ),
     GetPage(
-      name: contentAzkarScreen,
-      page: () => const ContentAzkarPage(),
+      name: contentAzkarDoaasScreen,
+      page: () => const ContentAzkarDoaasScreen(),
       transition: Transition.cupertino,
     ),
   ];
