@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:elresala/core/constants/app_keys.dart';
-import 'package:elresala/core/constants/app_pages_routes.dart';
 import 'package:elresala/core/errors/failures.dart';
 import 'package:elresala/core/helpers/get_failure_from_exception.dart';
 import 'package:elresala/core/services/api_service.dart';
@@ -167,21 +166,21 @@ class FirebaseStorageService extends GetxService {
             return fileContent;
           } else {
             EasyLoaderService.showToast(message: "File not exist");
-            Future.delayed(const Duration(milliseconds: 10)).then(
-              (value) => Get.offAllNamed(AppPagesRoutes.languagesScreen),
-            );
+            // Future.delayed(const Duration(milliseconds: 10)).then(
+            //   (value) => Get.offAllNamed(AppPagesRoutes.languagesScreen),
+            // );
           }
         } else {
           EasyLoaderService.showToast(message: "File path not found");
-          Future.delayed(const Duration(milliseconds: 10)).then(
-            (value) => Get.offAllNamed(AppPagesRoutes.languagesScreen),
-          );
+          // Future.delayed(const Duration(milliseconds: 10)).then(
+          //   (value) => Get.offAllNamed(AppPagesRoutes.languagesScreen),
+          // );
         }
       } else {
         EasyLoaderService.showToast(message: "No selected language");
-        Future.delayed(const Duration(milliseconds: 10)).then(
-          (value) => Get.offAllNamed(AppPagesRoutes.languagesScreen),
-        );
+        // Future.delayed(const Duration(milliseconds: 10)).then(
+        //   (value) => Get.offAllNamed(AppPagesRoutes.languagesScreen),
+        // );
       }
       Get.find<Logger>().w("End `readFile` in |FileService|");
       return null;
