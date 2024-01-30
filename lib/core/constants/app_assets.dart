@@ -17,6 +17,7 @@ abstract class AppAssets {
   //
   static const String logo = "$rootSVGIcon/logo.svg";
   static const String quran = "$rootSVGIcon/quran.svg";
+  static const String json = "assets/json.zip";
   static const String hadith = "$rootSVGIcon/hadith.svg";
   static const String prayer = "$rootSVGIcon/prayer.svg";
   static const String azkar = "$rootSVGIcon/azkar.svg";

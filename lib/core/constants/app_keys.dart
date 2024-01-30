@@ -3,6 +3,7 @@ class AppKeys {
 
   static const String languages = 'languages';
   static const String currentLanguage = 'currentLanguage';
+  static const String isExtracted = 'isExtracted';
 
   // For Main Files
   static const String quran = 'quran.json';
