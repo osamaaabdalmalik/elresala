@@ -56,6 +56,7 @@ dependencies:
   equatable: ^2.0.5
   font_awesome_flutter: ^10.6.0
   url_launcher: ^6.2.4
+  flutter_archive: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +84,7 @@ flutter:
     - assets/svg/icons/
     - assets/svg/images/
     - assets/svg/
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
