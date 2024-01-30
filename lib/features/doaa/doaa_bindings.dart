@@ -14,7 +14,7 @@ class DoaaBindings extends Bindings {
     Get.put<DoaaLocalDataSource>(
       DoaaLocalDataSourceImpl(
         sharedPreferencesService: Get.find(),
-        firebaseStorageService: Get.find(),
+        archiveService: Get.find(),
       ),
     );
     Get.put<DoaaRepo>(

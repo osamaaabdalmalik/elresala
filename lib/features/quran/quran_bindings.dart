@@ -14,7 +14,7 @@ class QuranBindings extends Bindings {
     Get.put<QuranLocalDataSource>(
       QuranLocalDataSourceImpl(
         sharedPreferencesService: Get.find(),
-        firebaseStorageService: Get.find(),
+        archiveService: Get.find(),
       ),
     );
     Get.put<QuranRepo>(

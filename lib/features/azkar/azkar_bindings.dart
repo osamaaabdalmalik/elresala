@@ -14,7 +14,7 @@ class AzkarBindings extends Bindings {
     Get.put<AzkarLocalDataSource>(
       AzkarLocalDataSourceImpl(
         sharedPreferencesService: Get.find(),
-        firebaseStorageService: Get.find(),
+        archiveService: Get.find(),
       ),
     );
     Get.put<AzkarRepo>(

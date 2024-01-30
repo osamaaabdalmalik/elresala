@@ -14,7 +14,7 @@ class HadithBindings extends Bindings {
     Get.put<HadithLocalDataSource>(
       HadithLocalDataSourceImpl(
         sharedPreferencesService: Get.find(),
-        firebaseStorageService: Get.find(),
+        archiveService: Get.find(),
       ),
     );
     Get.put<HadithRepo>(

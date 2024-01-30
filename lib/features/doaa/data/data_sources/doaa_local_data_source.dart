@@ -1,5 +1,5 @@
 import 'package:elresala/core/constants/app_keys.dart';
-import 'package:elresala/core/services/firebase_storage_service.dart';
+import 'package:elresala/core/services/archive_service.dart';
 import 'package:elresala/core/services/shared_preferences_service.dart';
 import 'package:elresala/features/hadith/data/models/hadith_model.dart';
 import 'package:get/get.dart';
@@ -11,18 +11,18 @@ abstract class DoaaLocalDataSource {
 
 class DoaaLocalDataSourceImpl extends DoaaLocalDataSource {
   final SharedPreferencesService sharedPreferencesService;
-  final FirebaseStorageService firebaseStorageService;
+  final ArchiveService archiveService;
 
   DoaaLocalDataSourceImpl({
     required this.sharedPreferencesService,
-    required this.firebaseStorageService,
+    required this.archiveService,
   });
 
   @override
   Future<List<HadithModel>> getDoaas() async {
     try {
       Get.find<Logger>().i("Start `getDoaas` in |DoaaLocalDataSourceImpl|");
-      String? fileContent = await firebaseStorageService.readFile(name: AppKeys.azkarDua);
+      String? fileContent = await archiveService.readFile(name: AppKeys.azkarDua);
 
       /// TODO get data from file depend on content and convert to models
       /// example:
