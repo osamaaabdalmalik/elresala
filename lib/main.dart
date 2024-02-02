@@ -1,4 +1,3 @@
-import 'package:elresala/core/constants/app_keys.dart';
 import 'package:elresala/core/constants/app_pages_routes.dart';
 import 'package:elresala/core/constants/app_themes.dart';
 import 'package:elresala/core/constants/app_translations.dart';
@@ -24,27 +23,27 @@ void main() async {
 }
 
 void initLang() {
-  String? sharedPrefLang = Get.find<SharedPreferences>().getString(AppKeys.lang);
+  // String? sharedPrefLang = Get.find<SharedPreferences>().getString(AppKeys.lang);
   ThemeData appTheme = AppThemes.themeEnglish;
   Locale language = const Locale("en");
   appTheme = AppThemes.themeEnglish;
-  if (sharedPrefLang == "ar") {
-    language = const Locale("ar");
-    appTheme = AppThemes.themeArabic;
-  } else if (sharedPrefLang == "en") {
-    language = const Locale("en");
-    appTheme = AppThemes.themeEnglish;
-  } else {
-    language = Locale(Get.deviceLocale!.languageCode);
-    if (Get.deviceLocale!.languageCode == "ar") {
-      appTheme = AppThemes.themeArabic;
-    } else if (Get.deviceLocale!.languageCode == "en") {
-      appTheme = AppThemes.themeEnglish;
-    }
-  }
+  // if (sharedPrefLang == "ar") {
+  //   language = const Locale("ar");
+  //   appTheme = AppThemes.themeArabic;
+  // } else if (sharedPrefLang == "en") {
+  //   language = const Locale("en");
+  //   appTheme = AppThemes.themeEnglish;
+  // } else {
+  //   language = Locale(Get.deviceLocale!.languageCode);
+  //   if (Get.deviceLocale!.languageCode == "ar") {
+  //     appTheme = AppThemes.themeArabic;
+  //   } else if (Get.deviceLocale!.languageCode == "en") {
+  //     appTheme = AppThemes.themeEnglish;
+  //   }
+  // }
   Get.put(language);
   Get.put(appTheme);
-  Get.find<SharedPreferences>().setString(AppKeys.lang, Get.deviceLocale!.languageCode);
+  // Get.find<SharedPreferences>().setString(AppKeys.lang, Get.deviceLocale!.languageCode);
 }
 
 class MyApp extends StatelessWidget {
