@@ -1,5 +1,5 @@
 import 'package:elresala/core/constants/app_assets.dart';
-import 'package:elresala/features/home/presentation/widgets/pray_time_widget_item.dart';
+import 'package:elresala/features/main/presentation/widgets/pray_time_widget_item.dart';
 import 'package:flutter/material.dart';
 
 class PrayTimeWidgetSectionHomeScreen extends StatelessWidget {
