@@ -3,7 +3,7 @@ import 'package:elresala/core/errors/failures.dart';
 import 'package:elresala/core/helpers/get_failure_from_exception.dart';
 import 'package:elresala/features/muslim/data/data_sources/muslim_local_data_source.dart';
 import 'package:elresala/features/muslim/data/data_sources/muslim_remote_data_source.dart';
-import 'package:elresala/features/muslim/data/models/course_model.dart';
+import 'package:elresala/features/muslim/data/models/muslim_model.dart';
 import 'package:elresala/features/muslim/domain/repository/muslim_repo.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';

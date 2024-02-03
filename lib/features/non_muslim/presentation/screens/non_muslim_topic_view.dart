@@ -1,5 +1,6 @@
 import 'package:elresala/core/constants/app_assets.dart';
 import 'package:elresala/core/constants/app_colors.dart';
+import 'package:elresala/core/styles/text_styles.dart';
 import 'package:elresala/core/utils/components/appbar/direction_aware.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,8 +9,8 @@ import 'package:get/get.dart';
 class NonMuslimTopicView extends StatelessWidget {
   final String header;
   final String body;
-  const NonMuslimTopicView(
-      {super.key, required this.header, required this.body});
+
+  const NonMuslimTopicView({super.key, required this.header, required this.body});
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +35,21 @@ class NonMuslimTopicView extends StatelessWidget {
                 ),
               ),
         backgroundColor: AppColors.kPrimaryColor,
-        title:
-            Text(header, style: const TextStyle(color: AppColors.kGoldenColor)),
+        title: Text(
+          header,
+          style: Styles.textStyle18Godlen,
+        ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      body: Container(
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: AppColors.kWhiteColor,
+        ),
         child: SingleChildScrollView(
             child: SelectableText(
           body,
-          style: const TextStyle(color: AppColors.kWhiteColor, fontSize: 17),
+          style: const TextStyle(color: AppColors.kBlackColor, fontSize: 17),
         )),
       ),
     );

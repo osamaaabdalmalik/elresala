@@ -8,10 +8,15 @@ class MuslimModel extends Muslim {
   });
 
   factory MuslimModel.fromJson(Map<String, dynamic> json) => MuslimModel(
-        title: json["title"],
-        description: json["description"],
+        title: json["title"] ?? '',
+        description: json["description"] ?? '',
         lessons: List<LessonModel>.from(
-            json["lessons"].map((x) => LessonModel.fromJson(x))),
+          json["lessons"] != null
+              ? json["lessons"].map(
+                  (x) => LessonModel.fromJson(x),
+                )
+              : [],
+        ),
       );
 }
 
@@ -22,9 +27,14 @@ class LessonModel extends Lesson {
   });
 
   factory LessonModel.fromJson(Map<String, dynamic> json) => LessonModel(
-        header: json["header"],
-        nestedTopics: List<NestedTopicModel>.from(
-            json["nestedTopicModels"].map((x) => NestedTopicModel.fromJson(x))),
+        header: json["header"] ?? '',
+        nestedTopics: json["nestedTopicModels"] != null
+            ? List<NestedTopicModel>.from(
+                json["nestedTopicModels"].map(
+                  (x) => NestedTopicModel.fromJson(x),
+                ),
+              )
+            : [],
       );
 }
 
@@ -34,8 +44,7 @@ class NestedTopicModel extends NestedTopic {
     required super.body,
   });
 
-  factory NestedTopicModel.fromJson(Map<String, dynamic> json) =>
-      NestedTopicModel(
+  factory NestedTopicModel.fromJson(Map<String, dynamic> json) => NestedTopicModel(
         title: json["title"],
         body: json["body"],
       );
