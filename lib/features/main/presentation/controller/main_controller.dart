@@ -13,24 +13,6 @@ class MainController extends GetxController {
       targetScreen: AppPagesRoutes.quranScreen,
     ),
     HomeCardData(
-      title: "Calender",
-      description: "Data,All holidays and special occasions for Muslims",
-      iconPath: AppAssets.calender,
-      targetScreen: AppPagesRoutes.mainScreen,
-    ),
-    HomeCardData(
-      title: "Prayer",
-      description: "Learn how to pray,Qiblah",
-      iconPath: AppAssets.prayer,
-      targetScreen: AppPagesRoutes.mainScreen,
-    ),
-    HomeCardData(
-      title: "Dua",
-      description: "Learn how to pray,Qiblah",
-      iconPath: AppAssets.prayer,
-      targetScreen: AppPagesRoutes.doaaScreen,
-    ),
-    HomeCardData(
       title: "Azkar",
       description: "Learn how to pray,Qiblah",
       iconPath: AppAssets.azkar,
@@ -45,19 +27,19 @@ class MainController extends GetxController {
     HomeCardData(
       title: "Advanced Learning",
       description: "Learn how to pray,Qiblah",
-      iconPath: AppAssets.hadith,
+      iconPath: AppAssets.azkar,
       targetScreen: AppPagesRoutes.advanced_learning,
     ),
     HomeCardData(
       title: "Courses for Muslim",
       description: "Learn how to pray,Qiblah",
-      iconPath: AppAssets.hadith,
+      iconPath: AppAssets.prayer,
       targetScreen: AppPagesRoutes.muslimScreen,
     ),
     HomeCardData(
       title: "Courses for Non Muslim",
       description: "Learn how to pray,Qiblah",
-      iconPath: AppAssets.hadith,
+      iconPath: AppAssets.prayer,
       targetScreen: AppPagesRoutes.nonMuslimScreen,
     ),
   ];

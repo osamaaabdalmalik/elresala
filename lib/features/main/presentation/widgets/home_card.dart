@@ -40,7 +40,7 @@ class HomeCard extends StatelessWidget {
                     endIndent: 5,
                   ),
                   SizedBox(
-                    width: Get.width * 0.5,
+                    width: Get.width * 0.7,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
