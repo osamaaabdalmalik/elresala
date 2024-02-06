@@ -1,8 +1,8 @@
 // ignore_for_file: camel_case_types, sized_box_for_whitespace, prefer_const_constructors
 
+import 'package:elresala/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../core/constants/app_colors.dart';
 import '../widgets/custom_appBar.dart';
 import '../widgets/custom_gridview.dart';
 import '../widgets/item _card.dart';

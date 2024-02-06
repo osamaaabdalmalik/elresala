@@ -1,8 +1,8 @@
 // ignore_for_file: camel_case_types
 
+import 'package:elresala/features/advanced_learning/presentation/controller/advanced_learning_controller.dart';
 import 'package:get/get.dart';
 
-import '../controller/advanced_learning_controller.dart';
 
 class Advanced_LearningBindings extends Bindings {
   @override

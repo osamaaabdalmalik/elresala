@@ -14,7 +14,7 @@ class AzkarDoaaBindings extends Bindings {
     Get.put<AzkarDoaaLocalDataSource>(
       AzkarDoaaLocalDataSourceImpl(
         sharedPreferencesService: Get.find(),
-        firebaseStorageService: Get.find(),
+        archiveService: Get.find(),
       ),
     );
     Get.put<AzkarDoaaRepo>(

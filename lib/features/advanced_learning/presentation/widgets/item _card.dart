@@ -1,9 +1,9 @@
 // ignore_for_file: camel_case_types
 
 import 'package:elresala/core/constants/app_colors.dart';
+import 'package:elresala/core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/styles/text_styles.dart';
 
 class Item_Card extends StatelessWidget {
   const Item_Card({super.key});
