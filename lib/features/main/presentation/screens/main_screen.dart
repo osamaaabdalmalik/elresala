@@ -1,9 +1,10 @@
-import 'package:elresala/core/constants/app_assets.dart';
 import 'package:elresala/core/constants/app_colors.dart';
+import 'package:elresala/core/utils/components/appbar/home_appbar.dart';
 import 'package:elresala/features/main/presentation/controller/main_controller.dart';
-import 'package:elresala/features/main/presentation/widgets/home_card.dart';
+import 'package:elresala/features/main/presentation/widgets/pray_time_widget_section_home_screen.dart';
+import 'package:elresala/features/main/presentation/widgets/sections_widgets_home_screen.dart';
+import 'package:elresala/features/main/presentation/widgets/time_and_hour_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class MainScreen extends GetView<MainController> {
@@ -11,50 +12,20 @@ class MainScreen extends GetView<MainController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: AppColors.kPrimaryColor,
-      appBar: AppBar(
-        backgroundColor: AppColors.kPrimaryColor,
-        leading: IconButton(
-          onPressed: () {
-            // Get.toNamed(AppPagesRoutes.languagesScreen);
-          },
-          icon: const Icon(Icons.settings),
-        ),
-        elevation: 0,
-      ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                "Home",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.kGoldenColor,
-                ),
-              ),
-              SvgPicture.asset(AppAssets.logo),
-            ],
-          ),
-          GetBuilder<MainController>(
-            builder: (controller) => ListView.separated(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.symmetric(vertical: 30),
-              itemCount: controller.homeCardsData.length,
-              itemBuilder: (context, index) => HomeCard(
-                homeCardData: controller.homeCardsData[index],
-              ),
-              separatorBuilder: (BuildContext context, int index) => const SizedBox(
-                height: 15,
-              ),
+      appBar: HomeAppBar(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            TimeAndHourWidget(),
+            SizedBox(
+              height: 12,
             ),
-          ),
-        ],
+            PrayTimeWidgetSectionHomeScreen(),
+            SectionswidgetsHomeScreen(),
+          ],
+        ),
       ),
     );
   }

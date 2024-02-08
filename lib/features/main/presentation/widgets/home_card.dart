@@ -22,6 +22,7 @@ class HomeCard extends StatelessWidget {
           ),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        margin: const EdgeInsets.symmetric(vertical: 5),
         child: IntrinsicHeight(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,7 +40,7 @@ class HomeCard extends StatelessWidget {
                     endIndent: 5,
                   ),
                   SizedBox(
-                    width: Get.width * 0.5,
+                    width: Get.width * 0.7,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
