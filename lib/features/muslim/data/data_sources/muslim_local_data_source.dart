@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:elresala/core/constants/app_keys.dart';
 import 'package:elresala/core/services/archive_service.dart';
 import 'package:elresala/core/services/shared_preferences_service.dart';
@@ -22,22 +24,23 @@ class MuslimLocalDataSourceImpl extends MuslimLocalDataSource {
   Future<List<MuslimModel>> getCourses() async {
     try {
       Get.find<Logger>().i("Start `getCourses` in |MuslimLocalDataSourceImpl|");
-      String? muslimJson = await archiveService.readFile(name: AppKeys.muslims);
+      String? muslimJson= await archiveService.readFile(name: AppKeys.newmuslim_quran);
+       List<MuslimModel> courses = [];
 
-      // List<MuslimModel> courses = [];
-      // if (muslimJson != null) {
-      //   var jsonData = json.decode(muslimJson);
-      //   courses = jsonData
-      //       .map<MuslimModel>(
-      //         (surah) => MuslimModel.fromJson(surah),
-      //       )
-      //       .toList();
-      // }
-      Get.find<Logger>().w("End `getCourses` in |MuslimLocalDataSourceImpl|");
-      return Future.value([]);
-    } catch (e) {
+      if (muslimJson != null) {
+         var jsonData = json.decode(muslimJson);
+         print(jsonData);
+         courses = jsonData["courses"]
+             .map<MuslimModel>(
+               (surah) => MuslimModel.fromJson(surah),
+             )
+             .toList();
+       }
+      Get.find<Logger>().w("End `getCourses` in |MuslimLocalDataSourceImpl| ");
+      return Future.value(courses);
+    } catch (e,s) {
       Get.find<Logger>().e(
-        "End `getCourses` in |MuslimLocalDataSourceImpl| Exception: ${e.runtimeType}",
+        "End `getCourses` in |MuslimLocalDataSourceImpl| Exception: ${e.runtimeType} $s",
       );
       rethrow;
     }

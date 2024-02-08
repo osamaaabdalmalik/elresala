@@ -52,7 +52,7 @@ class MainController extends GetxController {
       title: "Courses for Muslim",
       description: "Learn how to pray,Qiblah",
       iconPath: AppAssets.hadith,
-      targetScreen: AppPagesRoutes.muslimScreen,
+      targetScreen: AppPagesRoutes.muslimScreenCourses,
     ),
     HomeCardData(
       title: "Courses for Non Muslim",

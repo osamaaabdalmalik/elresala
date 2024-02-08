@@ -10,9 +10,18 @@ class AppKeys {
   static const String hadith = 'hadith.json';
   static const String azkarDua = 'azkar_doaa.json';
   static const String doaa = 'doaa.json';
-  static const String muslims = 'muslims.json';
   static const String nonMuslims = 'non_muslims.json';
   static const String sites = 'sites.json';
+ 
+    //muslim Files
+  static const String Arkan_of_islam = 'Arkan_of_islam.json';
+  static const String Ayman = 'Ayman.json';
+  static const String moomlat = 'moomlat.json';
+  static const String newlife = 'newlife.json';
+  static const String newmuslim_quran = 'newmuslim_quran.json';
+  static const String newmuslimscourse = 'newmuslimscourse.json';
+  static const String serah_Almostafa = 'serah_Almostafa.json';
+
 
   // For pray Files
   static const String fair = 'fair.json';

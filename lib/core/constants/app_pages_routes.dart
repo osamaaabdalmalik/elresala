@@ -31,11 +31,16 @@ abstract class AppPagesRoutes {
   static const String advanced_learning = "/advanced_learning_Screen";
 
   static const String doaaScreen = "/doaaScreen";
-  static const String muslimScreen = "/muslimScreen";
+ // static const String muslimScreen = "/muslimScreen";
   static const String nonMuslimScreen = "/nonMuslimScreen";
   static const String surahScreen = "/surahScreen";
   static const String telawaScreen = "/telawaScreen";
   static const String contentAzkarScreen = "/content_azkar_screen";
+  //MuslimCourse Screen
+  static const String muslimScreenCourses = "/telawaScreen";
+  static const String muslimlessons = "/telawaScreen";
+  static const String muslimlesson = "/telawaScreen";
+
 
   static List<GetPage<dynamic>> appPages = [
     GetPage(
@@ -82,8 +87,8 @@ abstract class AppPagesRoutes {
     // =========================================================
 
     GetPage(
-      name: muslimScreen,
-      page: () => const MuslimScreen(),
+      name: muslimScreenCourses,
+      page: () => const MuslimScreenCourses(),
       binding: MuslimBindings(),
       transition: Transition.cupertino,
     ),

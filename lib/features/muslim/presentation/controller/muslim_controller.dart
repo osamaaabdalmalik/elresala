@@ -12,6 +12,8 @@ class MuslimController extends GetxController {
   // States
   StateType getCoursesState = StateType.init;
 
+ 
+
   // Primitive
   String validationMessage = '';
 
