@@ -1,7 +1,7 @@
 class Muslim {
   String title;
-  String description;
-  List<Lesson> lessons;
+  String? description;
+  List lessons;
 
   Muslim({
     required this.title,
@@ -23,9 +23,12 @@ class Lesson {
 class NestedTopic {
   String title;
   String body;
+  String? vedio;
+
 
   NestedTopic({
     required this.title,
     required this.body,
+  required this.vedio,
   });
 }
