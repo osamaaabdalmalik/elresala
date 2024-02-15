@@ -58,4 +58,5 @@ class AppKeys {
   static const String theKeyToIslam2 = 'the_key_to__islam_2.json';
   static const String thePurity = 'the_purity.json';
   static const String womanInIslam = 'woman_in_islam.json';
+  static const String telegram = 'telegram.json';
 }
