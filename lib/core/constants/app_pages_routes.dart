@@ -4,9 +4,11 @@ import 'package:elresala/features/advanced_learning/presentation/advanced_learni
 import 'package:elresala/features/advanced_learning/presentation/screens/advanced_sites.dart';
 import 'package:elresala/features/azkar_doaa/azkar_doaa_bindings.dart';
 import 'package:elresala/features/azkar_doaa/presentation/screens/azkar_doaa_screen.dart';
-import 'package:elresala/features/azkar_doaa/presentation/screens/content_azkar_screen.dart';
+import 'package:elresala/features/azkar_doaa/presentation/screens/content_azkar_doaa_screen.dart';
 import 'package:elresala/features/hadith/hadith_bindings.dart';
 import 'package:elresala/features/hadith/presentation/screens/hadith_screen.dart';
+import 'package:elresala/features/hadith/presentation/screens/book_hadithes_screen.dart';
+import 'package:elresala/features/hadith/presentation/screens/sub_category_screen.dart';
 import 'package:elresala/features/main/main_bindings.dart';
 import 'package:elresala/features/main/presentation/screens/main_screen.dart';
 import 'package:elresala/features/muslim/muslim_bindings.dart';
@@ -18,6 +20,8 @@ import 'package:elresala/features/quran/presentation/screens/surah_screen.dart';
 import 'package:elresala/features/quran/presentation/screens/telawa_screen.dart';
 import 'package:elresala/features/quran/quran_bindings.dart';
 import 'package:get/get.dart';
+
+import '../../features/hadith/presentation/screens/content_hadith_screen.dart';
 
 
 abstract class AppPagesRoutes {
@@ -34,6 +38,10 @@ abstract class AppPagesRoutes {
   static const String surahScreen = "/surahScreen";
   static const String telawaScreen = "/telawaScreen";
   static const String contentAzkarDoaasScreen = "/content_azkar_screen";
+  static const String bookHadithesScreen = "/hadithes_screen";
+  static const String contentHadithScreen = "/content_hadith_screen";
+  static const String hadithBookScreen = "/hadith_book_screen";
+  static const String subCategoryScreen = "/sub_category_screen";
 
   static List<GetPage<dynamic>> appPages = [
     GetPage(
@@ -98,6 +106,21 @@ abstract class AppPagesRoutes {
     GetPage(
       name: contentAzkarDoaasScreen,
       page: () => const ContentAzkarDoaasScreen(),
+      transition: Transition.cupertino,
+    ),
+    GetPage(
+      name: bookHadithesScreen,
+      page: () => const BookHadithesScreen(),
+      transition: Transition.cupertino,
+    ),
+    GetPage(
+      name: subCategoryScreen,
+      page: () => const SubCategoryScreen(),
+      transition: Transition.cupertino,
+    ),
+    GetPage(
+      name: contentHadithScreen,
+      page: () => const ContentHadithScreen(),
       transition: Transition.cupertino,
     ),
   ];
