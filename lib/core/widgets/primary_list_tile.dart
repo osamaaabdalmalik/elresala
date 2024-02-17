@@ -39,8 +39,7 @@ class PrimaryListTile extends StatelessWidget {
             const SizedBox(
               width: 20,
             ),
-            SizedBox(
-              width: 280,
+            Expanded(
               child: Text(
                 itemName,
                 overflow: TextOverflow.ellipsis,
