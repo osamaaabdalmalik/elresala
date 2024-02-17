@@ -1,24 +1,23 @@
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/widgets/handle_states_widget.dart';
 import 'package:elresala/core/widgets/primary_list_tile.dart';
-import 'package:elresala/features/azkar_doaa/presentation/controller/azkar_doaa_controller.dart';
+import 'package:elresala/features/hadith/presentation/controller/hadith_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/state_manager.dart';
 
 import '../../../../core/constants/app_pages_routes.dart';
 import '../../../../core/widgets/primary_shimmer.dart';
-import '../../domain/entities/azkar_entity.dart';
 
-class BodyAzkarScreen extends GetView<AzkarDoaaController> {
-  const BodyAzkarScreen({super.key});
+class BodySunnahScreen extends GetView<HadithController> {
+  const BodySunnahScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AzkarDoaaController>(
+    return GetBuilder<HadithController>(
       builder: (controller) => SingleChildScrollView(
         child: HandleStatesWidget(
-          stateType: controller.getAzkarState,
+          stateType: controller.getSunnahHadithesState,
           hasShimmer: true,
           shimmerChild: ListView.separated(
             physics: const NeverScrollableScrollPhysics(),
@@ -41,21 +40,21 @@ class BodyAzkarScreen extends GetView<AzkarDoaaController> {
             child: Column(
               children: [
                 ...List.generate(
-                  controller.azkar.length,
+                  controller.sunnahHadithes?.booksName.length ?? 0,
                   (index) {
-                    Azkar azkar = controller.azkar[index];
+                    String bookName =
+                        controller.sunnahHadithes!.booksName[index];
                     return PrimaryListTile(
                       onTap: () {
                         Get.toNamed(
-                          AppPagesRoutes.contentAzkarDoaasScreen,
+                          AppPagesRoutes.bookHadithesScreen,
                           arguments: {
-                            "label": "azkar",
-                            "title": azkar.categoryNameEs ?? "",
-                            "data": azkar.zikr,
+                            "title": bookName,
+                            "webside": "sunnah",
                           },
                         );
                       },
-                      itemName: azkar.categoryNameEs ?? "",
+                      itemName: bookName,
                       itemNumber: index + 1,
                       isSaved: false,
                     );
@@ -70,4 +69,3 @@ class BodyAzkarScreen extends GetView<AzkarDoaaController> {
     );
   }
 }
-

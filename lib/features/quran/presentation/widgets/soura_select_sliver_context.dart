@@ -46,7 +46,7 @@ class SurahSelectSliver extends StatelessWidget {
                           //     topLeft: Radius.circular(100),
                           //     topRight: Radius.circular(100)),
                         ),
-                        child: HandleStatesWidget(
+                        child: HandleStatesWidget(    
                           stateType: controller.getSurahsState,
                           hasShimmer: true,
                           shimmerChild: ListView.separated(
