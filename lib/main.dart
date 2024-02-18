@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (_, __) => GetMaterialApp(
-        title: 'Elresala',
+        title: 'Al-Resala Al-Khaleda',
         debugShowCheckedModeBanner: false,
         locale: Get.find<Locale>(),
         translations: AppTranslations(),

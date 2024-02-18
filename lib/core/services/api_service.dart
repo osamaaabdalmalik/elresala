@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:elresala/core/constants/app_api_routes.dart';
 import 'package:elresala/core/errors/exception.dart';
 import 'package:elresala/core/helpers/get_exception_from_status_code.dart';
@@ -9,7 +8,6 @@ import 'package:elresala/core/helpers/network_info.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
-import 'package:path_provider/path_provider.dart';
 
 class ApiService extends GetxService {
   final http.Client client;
@@ -79,33 +77,6 @@ class ApiService extends GetxService {
       return Future.value((json.decode(response.body)));
     } catch (e) {
       Get.find<Logger>().e('End get `$subUrl` |ApiServiceImpl| Exception: ${e.runtimeType}');
-      rethrow;
-    }
-  }
-
-  Future<String> downloadFile({
-    required String url,
-    required String subPath,
-    required Function(double) onProgress,
-  }) async {
-    try {
-      Get.find<Logger>().i('Start downloadFile `$url` |ApiServiceImpl| subPath: $subPath');
-      if (!(await networkInfo.isConnected)) {
-        throw OfflineException();
-      }
-      final appDocumentDirectory = await getApplicationDocumentsDirectory();
-      String path = '${appDocumentDirectory.path}/$subPath';
-      await Dio().download(
-        url,
-        path,
-        onReceiveProgress: (count, total) {
-          onProgress(count / total);
-        },
-      );
-      Get.find<Logger>().w('End downloadFile `$url` |ApiServiceImpl|');
-      return Future.value(path);
-    } catch (e) {
-      Get.find<Logger>().e('End downloadFile `$url` |ApiServiceImpl| Exception: ${e.runtimeType}');
       rethrow;
     }
   }
