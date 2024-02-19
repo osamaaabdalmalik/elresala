@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (_, __) => GetMaterialApp(
-        title: 'Al-Resala Al-Khaleda',
+        title: 'El Mensaje Eterno',
         debugShowCheckedModeBanner: false,
         locale: Get.find<Locale>(),
         translations: AppTranslations(),
@@ -61,3 +61,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+/*
+keytool -genkey -v -keystore C:\Users\Asus\AndroidStudioProjects\Flutter\current\islamic\elresala\android\app\upload-keystore.jks ^
+        -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 ^
+        -alias upload
+
+        password: elresala$123
+  */

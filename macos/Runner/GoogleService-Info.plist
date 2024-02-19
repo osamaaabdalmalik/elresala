@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.elresala.RunnerTests</string>
+	<string>com.mensaje.eterno.RunnerTests</string>
 	<key>PROJECT_ID</key>
 	<string>elresala-d01eb</string>
 	<key>STORAGE_BUCKET</key>
