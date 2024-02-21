@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 class AppColors {
   static const MaterialColor materialPrimary = MaterialColor(0xFF2196F3, {
@@ -36,4 +37,8 @@ class AppColors {
   static const Color kGoldenColor = Color(0xffFCC050);
   static const Color kBlackColor = Color(0xff222222);
   static const Color kWhiteColor = Color(0xffE9EDDF);
+
+  //VideoColors
+  static const VideoProgressColors videocolor =
+      VideoProgressColors(playedColor:kGoldenColor,backgroundColor: kPrimaryColor  );
 }

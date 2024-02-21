@@ -9,9 +9,9 @@ class LessonModel extends Lesson {
 
   factory LessonModel.fromJson(Map<String, dynamic> json) => LessonModel(
     header: json["header"] ?? '',
-    nestedTopics: json["nestedTopicModels"] != null
+    nestedTopics: json["nestedTopics"] != null
         ? List<NestedTopicModel>.from(
-      json["nestedTopicModels"].map(
+      json["nestedTopics"].map(
             (x) => NestedTopicModel.fromJson(x),
       ),
     )
@@ -29,6 +29,6 @@ class NestedTopicModel extends NestedTopic {
   factory NestedTopicModel.fromJson(Map<String, dynamic> json) => NestedTopicModel(
     title: json["title"],
     body: json["body"],
-    vedio: json.containsKey('video')?json["vedio"]:null,
+    vedio: json.containsKey('video')?json["video"]:null,
   );
 }

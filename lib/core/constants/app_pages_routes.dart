@@ -94,7 +94,7 @@ abstract class AppPagesRoutes {
     ),
         //Lissons Muslim Screen
     GetPage(name: muslimlessons, page:()=>const LissonsMuslim()),
-    GetPage(name: muslimview, page: ()=>const MuslimView()),
+    GetPage(name: muslimview, page: ()=>  MuslimView()),
     GetPage(name: muslimScreenCoursesSub, page:()=>const MuslimScreenCoursesSub()),
     //LissonsHome Muslim Screen
     GetPage(name: muslimlessonhome, page:()=>const LissonHomeMuslim()),

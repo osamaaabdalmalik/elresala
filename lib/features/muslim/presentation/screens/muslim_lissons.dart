@@ -1,7 +1,7 @@
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:elresala/core/constants/app_pages_routes.dart';
 import 'package:elresala/core/widgets/handle_states_widget.dart';
-import 'package:elresala/features/muslim/presentation/Widget/Custom_button_muslim_title.dart';
+import 'package:elresala/features/muslim/presentation/Widget/custom_text_muslim.dart';
 import 'package:elresala/features/muslim/presentation/controller/muslim_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,48 +18,46 @@ class LissonsMuslim extends GetView<MuslimController> {
         backgroundColor: AppColors.kPrimaryColor,
         elevation: 0,
       ),
-      body: Container(height: double.infinity,
+      body: Container(
+        height: double.infinity,
         color: AppColors.kPrimaryColor,
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-        child: GetBuilder<MuslimController>(
-          builder: (controller) {
-            return HandleStatesWidget(
-                stateType: controller.getCoursesState,
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      CustomMuslimButtonTitle(title: "Lissons"),
-                      ...List.generate(
-                          controller.namecourses[controller.number].values
-                              .firstOrNull[0].lessons.length,
-                          (index) => InkWell(onTap: () {
-                            Get.toNamed(controller.namecourses[controller.number]["IsMuslimModel"]?
-                                AppPagesRoutes.muslimlessonhome:AppPagesRoutes.muslimview
-                            );
-                            controller.lisson_number=index;
-                          },
-                            child: CustomMuslimContianer(
-                                text: controller.namecourses[controller.number]
-                                        ["IsMuslimModel"]
-                                    ?  controller
-                                    .namecourses[controller.number]
-                                    .values
-                                    .firstOrNull[0]
-                                    .lessons[index]
-                                    .header
-                                    : controller
-                                        .namecourses[controller.number]
-                                        .values
-                                        .firstOrNull[0]
-                                        .lessons[index]
-                                        .title),
-                          ))
-                    ],
-                  ),
-                ));
-          },
-        ),
+        child:ListView(children: [
+          CustomTextMuslim(text: controller
+              .DataViewList[controller.course_number]
+              .title, istitle: true),
+          const SizedBox(
+            height: 15,
+          ),
+          CustomTextMuslim(
+              text: controller
+                  .DataViewList[controller.course_number]
+                  .description,
+              istitle: false),
+          const SizedBox(
+            height: 15,
+          ),CustomTextMuslim(text: "Lissons:", istitle: true),
+          ...List.generate(
+            controller.DataViewList[controller.course_number]
+                .lessons.length,
+                (index) => CustomMuslimItem(
+                onTap: () {
+                  Get.toNamed(controller.isMoslimModel
+                      ? AppPagesRoutes.muslimlessonhome
+                      : AppPagesRoutes.muslimview);
+                  controller.lisson_number = index;
+                },
+                text: controller.isMoslimModel
+                    ? controller
+                    .DataViewList[controller.course_number]
+                    .lessons[index]
+                    .header
+                    : controller
+                    .DataViewList[controller.course_number]
+                    .lessons[index]
+                    .title),
+          )
+        ],)
       ),
     );
   }

@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 
-class CustomMuslimContianer extends StatelessWidget {
+class CustomMuslimItem extends StatelessWidget {
   final String text;
+  final VoidCallback onTap;
 
-  const CustomMuslimContianer({super.key, required this.text});
+  const CustomMuslimItem({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -16,32 +17,31 @@ class CustomMuslimContianer extends StatelessWidget {
           borderRadius: BorderRadius.circular(10)),
       padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 7),
       margin: const EdgeInsets.symmetric(vertical: 15),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            flex: 4,
-            child: Text(
-              maxLines: 3,
-              text,
-              style:
-                  const TextStyle(color: AppColors.kGoldenColor, fontSize: 16),
+      child: InkWell(onTap: onTap,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              flex: 4,
+              child: Text(
+                maxLines: 3,
+                text,
+                style:
+                    const TextStyle(color: AppColors.kGoldenColor, fontSize: 18
+                    ,fontStyle: FontStyle.italic
+                    ),
+              ),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Row(
-              children: [
-                const Text("sdfd"),
-                Icon(
-                  size: 34,
-                  Icons.chevron_right,
-                  color: AppColors.kPrimaryColor,
-                )
-              ],
-            ),
-          )
-        ],
+            Expanded(
+              flex: 1,
+              child: Icon(
+                size: 34,
+                Icons.chevron_right,
+                color: AppColors.kPrimaryColor,
+              )
+            )
+          ],
+        ),
       ),
     );
   }

@@ -46,7 +46,7 @@ class MuslimLocalDataSourceImpl extends MuslimLocalDataSource {
 
       if (muslimJson != null) {
          var jsonData = json.decode(muslimJson);
-         print(jsonData);
+
          courses = jsonData["courses"]
              .map<MuslimModel>(
                (surah) => MuslimModel.fromJson(surah),
@@ -72,7 +72,7 @@ class MuslimLocalDataSourceImpl extends MuslimLocalDataSource {
 
       if (muslimJson != null) {
         var jsonData = json.decode(muslimJson);
-        print(jsonData);
+
         courses = jsonData["courses"]
             .map<MuslimCoursesModel>(
               (surah) => MuslimCoursesModel.fromJson(surah),
@@ -98,7 +98,7 @@ class MuslimLocalDataSourceImpl extends MuslimLocalDataSource {
 
       if (muslimJson != null) {
         var jsonData = json.decode(muslimJson);
-        print(jsonData);
+
         courses = jsonData["courses"]
             .map<MuslimCoursesModel>(
               (surah) => MuslimCoursesModel.fromJson(surah),

@@ -46,26 +46,3 @@ class MuslimCoursesModel extends Muslim{
       );
 }
 
-//Model Arkan json
-
-
- /*class ArkanCoursesModel extends Muslim{
-  ArkanCoursesModel({
-    required super.title,
-    required super.description,
-    required super.lessons,
-  });
-  factory ArkanCoursesModel.fromJson(Map<String,dynamic> json)=>
-      ArkanCoursesModel(
-        title: json["title"] ?? '',
-        description: json["description"] ?? '',
-        lessons: List<NestedTopicModel>.from(
-          json["lessons"] != null
-              ? json["lessons"].map(
-                (x) => NestedTopicModel.fromJson(x),
-          )
-              : [],
-        ),
-      );
-}
-*/
