@@ -3,20 +3,17 @@
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../controller/advanced_learning_controller.dart';
 import '../widgets/custom_appBar.dart';
 import '../widgets/custom_gridview.dart';
 import '../widgets/item _card.dart';
 
-class Advanced_Sites extends StatefulWidget {
-  const Advanced_Sites({super.key});
+class AdvancedSites extends StatelessWidget {
+  const AdvancedSites({super.key});
 
-  @override
-  State<Advanced_Sites> createState() => _Advanced_SitesState();
-}
-
-class _Advanced_SitesState extends State<Advanced_Sites> {
   @override
   Widget build(BuildContext context) {
+    Get.put(Advanced_LearningController());
     return Scaffold(
       backgroundColor: AppColors.kPrimaryColor,
       body: CustomScrollView(
@@ -26,39 +23,52 @@ class _Advanced_SitesState extends State<Advanced_Sites> {
             isSearch: true,
             isPinned: true,
           ),
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                //
-                Container(
-                  padding: EdgeInsets.only(top: 10),
-                  height: 80,
-                  child: Item_GridView(),
-                ),
-
-                //
-                Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: Container(
-                    height: Get.height,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.white,
-                    ),
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: MediaQuery.of(context).size.height),
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return const Item_Card();
-                      },
-                    ),
+          GetBuilder<Advanced_LearningController>(
+            builder: (controller) => SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  //
+                  Container(
+                    padding: EdgeInsets.only(top: 10),
+                    height: Get.height/13,
+                    child: Item_GridView(),
                   ),
-                ),
-              ],
+
+                  //
+                  Directionality(
+                      textDirection: TextDirection.ltr,
+                      child: Container(
+                        height: Get.height,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.white,
+                        ),
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          padding: EdgeInsets.only(
+                              left: 10, right: 10, top: 10, bottom: 60),
+                          itemCount:
+                              controller.page[controller.selectedPart].length,
+                          itemBuilder: (context, index) {
+                            return InkWell(
+                              onTap: () {
+                                Get.toNamed(
+                                    controller.page[controller.selectedPart]
+                                        [index]['targetScreen']);
+                              },
+                              child: Item_Card(
+                                  titleSite:
+                                      controller.page[controller.selectedPart]
+                                          [index]['title']),
+                            );
+                          },
+                        ),
+                      )),
+                ],
+              ),
             ),
-          ),
+          )
         ],
       ),
     );

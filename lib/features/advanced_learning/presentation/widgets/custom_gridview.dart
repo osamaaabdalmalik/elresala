@@ -2,33 +2,46 @@
 
 import 'package:elresala/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../controller/advanced_learning_controller.dart';
 
 class Item_GridView extends StatelessWidget {
   const Item_GridView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
-        // mainAxisSpacing: 8.0, // spacing between rows
-        // crossAxisSpacing: 8.0, // spacing between columns
-      ),
-      padding: const EdgeInsets.all(8.0),
-      itemCount: 4,
+    Advanced_LearningController controller =
+        Get.put(Advanced_LearningController());
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: 6,
       itemBuilder: (context, index) {
-        return const Column(
-          children: [
-            Text(
-              'AAA',
-              style: TextStyle(color: AppColors.kGoldenColor),
-            ),
-            SizedBox(width: 20, height: 10),
-            Text(
-              'BBBBB',
-              style: TextStyle(color: AppColors.kGoldenColor),
-            ),
-          ],
+        return InkWell(
+          onTap: () {
+            controller.changeSelectedPart(index);
+          },
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  controller.titlePart[index],
+                  style: const TextStyle(
+                      color: AppColors.kGoldenColor,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+              controller.selectedPart == index
+                  ? Container(
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      width: controller.titlePart[index].toString().length*7.0,
+                      height: 2,
+                      color: AppColors.kGoldenColor,
+                    )
+                  : Container()
+            ],
+          ),
         );
       },
     );

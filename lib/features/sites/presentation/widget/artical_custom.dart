@@ -22,7 +22,7 @@ class ArticalCustom extends StatelessWidget {
             dataText,
             textAlign: TextAlign.start,
             style: const TextStyle(
-                fontSize: 18, height: 1.5, fontWeight: FontWeight.bold),
+                fontSize: 18, height: 1.5,),
           ),
         ]),
       ),

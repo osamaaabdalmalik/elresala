@@ -1,37 +1,36 @@
-import 'package:elresala/features/sites/presentation/controller/rasul_uallah/rasul_video_controller.dart';
-import 'package:elresala/features/sites/presentation/screen/rasul_uallah/Video/video_contain_screen.dart';
-import 'package:elresala/features/sites/presentation/widget/app_bar_custom.dart';
-import 'package:elresala/features/sites/presentation/widget/inkwell_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../controller/rasulullah_controller.dart';
+import '../../../widget/app_bar_custom.dart';
+import '../../../widget/inkwell_custom.dart';
+import 'video_contain_screen.dart';
 
 class VideoScreen extends StatelessWidget {
   const VideoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(RasulVideoControllerImp());
+    Get.put(RasuluallhControllerImp());
     return Scaffold(
-        appBar: const AppBarCustom(title: 'Video').customAppBar(context),
-        body: GetBuilder<RasulVideoControllerImp>(
+        appBar: const AppBarCustom(title: 'Rasul allah video').customAppBar(context),
+        body: GetBuilder<RasuluallhControllerImp>(
             builder: (controller) => Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-                child: GridView.builder(
+                child: ListView.builder(
                     padding: const EdgeInsets.all(5),
-                    itemCount: controller.dataVideoKey.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 1, childAspectRatio: 3),
+                    itemCount: controller.articals[1].catigory.length,
                     itemBuilder: (context, index) {
                       return InkwellCustom(
                         catigory: false,
-                        dataText: controller.dataVideoKey[index],
+                        dataText: controller.articals[1].catigory[index].name,
                         onTap: () {
                           Get.to(VideoContainScreen(
-                              dataText: controller.dataVideoTitle[index],
-                              itemCount:
-                                  controller.dataVideoTitle[index].length,
-                              onTap: controller.dataVideoLink[index]));
+                            dataText: controller
+                                .articals[1].catigory[index].subCatigory,
+                            itemCount: controller
+                                .articals[1].catigory[index].subCatigory.length,
+                          ));
                         },
                       );
                     }))));
