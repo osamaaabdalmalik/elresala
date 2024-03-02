@@ -12,7 +12,11 @@ import 'package:elresala/features/hadith/presentation/screens/sub_category_scree
 import 'package:elresala/features/main/main_bindings.dart';
 import 'package:elresala/features/main/presentation/screens/main_screen.dart';
 import 'package:elresala/features/muslim/muslim_bindings.dart';
+import 'package:elresala/features/muslim/presentation/screens/lissonhome.dart';
 import 'package:elresala/features/muslim/presentation/screens/muslim_courses_screen.dart';
+import 'package:elresala/features/muslim/presentation/screens/muslim_courses_sub.dart';
+import 'package:elresala/features/muslim/presentation/screens/muslim_lissons.dart';
+import 'package:elresala/features/muslim/presentation/screens/view_muslim.dart';
 import 'package:elresala/features/non_muslim/non_muslim_bindings.dart';
 import 'package:elresala/features/non_muslim/presentation/screens/non_muslim_screen.dart';
 import 'package:elresala/features/quran/presentation/screens/quran_screen.dart';
@@ -20,11 +24,6 @@ import 'package:elresala/features/quran/presentation/screens/surah_screen.dart';
 import 'package:elresala/features/quran/presentation/screens/telawa_screen.dart';
 import 'package:elresala/features/quran/quran_bindings.dart';
 import 'package:get/get.dart';
-
-import '../../features/muslim/presentation/screens/lissonhome.dart';
-import '../../features/muslim/presentation/screens/muslim_courses_sub.dart';
-import '../../features/muslim/presentation/screens/muslim_lissons.dart';
-import '../../features/muslim/presentation/screens/view_muslim.dart';
 
 import '../../features/hadith/presentation/screens/content_hadith_screen.dart';
 import '../../features/sites/bindings/begining_banding.dart';
@@ -81,13 +80,51 @@ abstract class AppPagesRoutes {
   static const String hadithScreen = "/hadithScreen";
   static const String azkarScreen = "/azkarScreen";
   static const String advanced_learning = "/advanced_learning_Screen";
-  static const String doaaScreen = "/doaaScreen";
 
- // static const String muslimScreen = "/muslimScreen";
+  static const String doaaScreen = "/doaaScreen";
+  static const String muslimScreen = "/muslimScreen";
   static const String nonMuslimScreen = "/nonMuslimScreen";
   static const String surahScreen = "/surahScreen";
   static const String telawaScreen = "/telawaScreen";
   static const String contentAzkarDoaasScreen = "/content_azkar_screen";
+  static const String bookHadithesScreen = "/hadithes_screen";
+  static const String contentHadithScreen = "/content_hadith_screen";
+  static const String hadithBookScreen = "/hadith_book_screen";
+  static const String subCategoryScreen = "/sub_category_screen";
+
+  ///////////////////////// name routs site ////////////////////////
+  static const String islamHouse = "/islam_house_screen";
+  static const String islamWeb = "/islam_web_screen";
+  static const String islamMessage = "/islam_message_screen";
+  static const String islamReligion = "/islam_religion_screen";
+  static const String islamLand = "/islam_land_screen";
+  static const String rasulullah = "/rasulullah_screen";
+  static const String jesusIsMuslim = "/jesus_is_muslim_screen";
+  static const String jesusInQuran = "/jesus_in_quran_screen";
+  static const String islamForChristians = "/islam_for_christians_screen";
+  static const String islamPort = "/islam_port_screen";
+  static const String islamUniverse = "/islam_universe_screen";
+  static const String exploreIslam = "/explore_islam_screen";
+  static const String learningIslam = "/learning_islam_screen";
+  static const String islamReligionOfPace = "/islam_religion_of_pace_screen";
+  static const String messageOfIslam = "/message_of_islam_screen";
+  static const String muhammadTheMessangerOfGod =
+      "/muhammad_the_messanger_of_god_screen";
+  static const String romanceInIslam = "/romance_in_islam_screen";
+  static const String beginningAndEnd = "/beginning_and_end_screen";
+  static const String womenInIslam = "/women_in_islam_screen";
+  static const String loveInIslam = "/love_in_islam_screen";
+  static const String firstSteps = "/first_steps_screen";
+  static const String bidaaInIslam = "/bidaa_in_islam_screen";
+  static const String terminology = "/terminology_screen";
+
+  //MuslimScreen
+    static const String muslimScreenCourses = "/MuslimScreenCourses";
+  static const String muslimScreenCoursesSub = "/MuslimScreenCoursesSub";
+  static const String lissonsMuslim = "/LissonsMuslim";
+  static const String lissonHomeMuslim = "/LissonHomeMuslim";
+  static const String muslimView = "/MuslimView";
+
 
   static List<GetPage<dynamic>> appPages = [
     GetPage(
@@ -95,6 +132,32 @@ abstract class AppPagesRoutes {
       page: () => const MainScreen(),
       binding: MainBindings(),
       // middlewares: [MainMiddleware()],
+      transition: Transition.cupertino,
+    ),
+ GetPage(
+      name: muslimScreenCourses,
+      page: () => const MuslimScreenCourses(),
+      binding: MuslimBindings(),
+      transition: Transition.cupertino,
+    ), GetPage(
+      name: muslimScreenCoursesSub,
+      page: () => const MuslimScreenCoursesSub(),
+      binding: MuslimBindings(),
+      transition: Transition.cupertino,
+    ), GetPage(
+      name: lissonsMuslim,
+      page: () => const LissonsMuslim(),
+      binding: MuslimBindings(),
+      transition: Transition.cupertino,
+    ), GetPage(
+      name: lissonHomeMuslim,
+      page: () => const LissonHomeMuslim(),
+      binding: MuslimBindings(),
+      transition: Transition.cupertino,
+    ), GetPage(
+      name: muslimView,
+      page: () => const MuslimView(),
+      binding: MuslimBindings(),
       transition: Transition.cupertino,
     ),
     GetPage(
@@ -264,20 +327,8 @@ abstract class AppPagesRoutes {
     ),
 
     // =========================================================
-            // Main Muslim Screen
-    GetPage(
-      name: muslimScreenCourses,
-      page: () => const MuslimScreenCourses(),
-      binding: MuslimBindings(),
-      transition: Transition.cupertino,
-    ),
-        //Lissons Muslim Screen
-    GetPage(name: muslimlessons, page:()=>const LissonsMuslim()),
-    GetPage(name: muslimview, page: ()=>  MuslimView()),
-    GetPage(name: muslimScreenCoursesSub, page:()=>const MuslimScreenCoursesSub()),
-    //LissonsHome Muslim Screen
-    GetPage(name: muslimlessonhome, page:()=>const LissonHomeMuslim()),
-    //=====================================================
+
+    
     GetPage(
       name: nonMuslimScreen,
       page: () => const NonMuslimSectionScreen(),

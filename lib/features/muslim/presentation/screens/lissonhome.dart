@@ -31,7 +31,7 @@ class LissonHomeMuslim extends GetView<MuslimController> {
                         .lessons[controller.lisson_number].nestedTopics.length,
                     (index) => CustomMuslimItem(
                         onTap: () {
-                          Get.toNamed(AppPagesRoutes.muslimview);
+                          Get.toNamed(AppPagesRoutes.muslimView);
                           controller.artical_number = index;
 
                         },

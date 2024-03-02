@@ -43,8 +43,8 @@ class LissonsMuslim extends GetView<MuslimController> {
                 (index) => CustomMuslimItem(
                 onTap: () {
                   Get.toNamed(controller.isMoslimModel
-                      ? AppPagesRoutes.muslimlessonhome
-                      : AppPagesRoutes.muslimview);
+                      ? AppPagesRoutes.lissonHomeMuslim
+                      : AppPagesRoutes.muslimView);
                   controller.lisson_number = index;
                 },
                 text: controller.isMoslimModel

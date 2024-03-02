@@ -36,7 +36,7 @@ class MuslimScreenCoursesSub extends GetView<MuslimController> {
                         ...List.generate(
                             controller.DataViewList.length,
                             (index) => CustomMuslimItem(onTap: () {
-                              Get.toNamed(AppPagesRoutes.muslimlessons);
+                              Get.toNamed(AppPagesRoutes.lissonsMuslim);
                               controller.course_number=index;
                             },
                               text:controller.DataViewList[index].title,
