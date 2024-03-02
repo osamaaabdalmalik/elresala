@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:elresala/core/constants/app_colors.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class ContainerCustom extends StatelessWidget {
   final bool catigory;
   final IconData? iconData;
   final String dataText;
-  const ContainerCustom(
-      {super.key,
-      required this.catigory,
-      this.iconData,
-      required this.dataText});
+  const ContainerCustom({
+    super.key,
+    required this.catigory,
+    this.iconData,
+    required this.dataText,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
       margin: const EdgeInsets.only(top: 15, right: 15, left: 15),
       decoration: BoxDecoration(
           color: AppColors.kGreenColor,

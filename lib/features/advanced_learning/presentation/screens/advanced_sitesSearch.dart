@@ -59,7 +59,7 @@ class _Advanced_Sites_SearchState extends State<Advanced_Sites_Search> {
                       padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: MediaQuery.of(context).size.height),
                       itemCount: 10,
                       itemBuilder: (context, index) {
-                        return const Item_Card();
+                        return const Item_Card(titleSite: '',);
                       },
                     ),
                   ),

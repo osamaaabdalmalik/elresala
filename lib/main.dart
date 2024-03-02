@@ -1,9 +1,7 @@
 import 'package:elresala/core/constants/app_pages_routes.dart';
 import 'package:elresala/core/constants/app_themes.dart';
 import 'package:elresala/core/constants/app_translations.dart';
-import 'package:elresala/firebase_options.dart';
 import 'package:elresala/intial_bindings.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,9 +10,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   final SharedPreferences pref = await SharedPreferences.getInstance();
   Get.put(pref);
   initLang();
@@ -53,7 +48,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (_, __) => GetMaterialApp(
-        title: 'Elresala',
+        title: 'El Mensaje Eterno',
         debugShowCheckedModeBanner: false,
         locale: Get.find<Locale>(),
         translations: AppTranslations(),
@@ -66,3 +61,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+/*
+keytool -genkey -v -keystore C:\Users\Asus\AndroidStudioProjects\Flutter\current\islamic\elresala\android\app\upload-keystore.jks ^
+        -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 ^
+        -alias upload
+
+        password: elresala$123
+  */
