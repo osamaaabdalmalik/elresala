@@ -19,10 +19,10 @@ import 'package:elresala/features/quran/presentation/screens/telawa_screen.dart'
 import 'package:elresala/features/quran/quran_bindings.dart';
 import 'package:get/get.dart';
 
-import '../../features/muslim/presentation/screens/lissonhome.dart';
+import '../../features/muslim/presentation/screens/muslim_lessons_sub.dart';
 import '../../features/muslim/presentation/screens/muslim_courses_sub.dart';
-import '../../features/muslim/presentation/screens/muslim_lissons.dart';
-import '../../features/muslim/presentation/screens/view_muslim.dart';
+import '../../features/muslim/presentation/screens/muslim_lessons_screen.dart';
+import '../../features/muslim/presentation/screens/muslim_view.dart';
 
 
 abstract class AppPagesRoutes {
