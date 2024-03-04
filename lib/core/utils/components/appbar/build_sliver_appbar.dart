@@ -80,15 +80,15 @@ class SliverAppBarWidget extends StatelessWidget {
                 items: const [
                   DropdownMenuItem<int>(
                     value: 1,
-                    child: Text('Translator 1'),
+                    child: Text('Julio Cortes'),
                   ),
                   DropdownMenuItem<int>(
                     value: 2,
-                    child: Text('Translator 2'),
+                    child: Text('Raul Gonzalez Bornez'),
                   ),
                   DropdownMenuItem<int>(
                     value: 3,
-                    child: Text('Translator 3'),
+                    child: Text('Muhammad Isa Garcia'),
                   ),
                 ],
                 selectedItem: controller.selectedTranslator,
