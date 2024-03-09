@@ -13,11 +13,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: AppColors.kPrimaryColor,
-      title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: SvgPicture.asset(AppAssets.logoApp)),
+      title: Padding(padding: const EdgeInsets.symmetric(horizontal: 12), child: SvgPicture.asset(AppAssets.logoApp)),
       actions: const [
-        CustomPopupMenuButton(),
+        // CustomPopupMenuButton(),
       ],
       elevation: 0,
     );
@@ -35,22 +33,18 @@ class CustomPopupMenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<String>(
-      onSelected: (value) {
-      },
+      onSelected: (value) {},
       itemBuilder: (BuildContext context) => [
-        _buildPopupMenuItem('Language', FontAwesomeIcons.language, 'Language'),
-        _buildPopupMenuItem(
-            'Report a problem', FontAwesomeIcons.info, 'Report a Problem'),
-        _buildPopupMenuItem('Theme', FontAwesomeIcons.paintbrush, 'Theme'),
-        _buildPopupMenuItem('Country', FontAwesomeIcons.globe, 'Country'),
-        _buildPopupMenuItem('About the developers', FontAwesomeIcons.user,
-            'About the Developers'),
+        // _buildPopupMenuItem('Language', FontAwesomeIcons.language, 'Language'),
+        // _buildPopupMenuItem('Report a problem', FontAwesomeIcons.info, 'Report a Problem'),
+        // _buildPopupMenuItem('Theme', FontAwesomeIcons.paintbrush, 'Theme'),
+        // _buildPopupMenuItem('Country', FontAwesomeIcons.globe, 'Country'),
+        _buildPopupMenuItem('About the developers', FontAwesomeIcons.deviantart, 'About the Developers'),
       ],
       splashRadius: 1,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18),
       ),
-      offset: const Offset(200, 60),
       elevation: 0,
       color: AppColors.kGreenColor,
       child: Padding(
@@ -72,6 +66,7 @@ class CustomPopupMenuButton extends StatelessWidget {
               child: FaIcon(
                 icon,
                 color: AppColors.kWhiteColor,
+                size: 20,
               ),
             ),
           ),

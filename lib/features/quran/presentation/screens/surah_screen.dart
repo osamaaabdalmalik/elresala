@@ -3,7 +3,6 @@ import 'package:elresala/core/utils/components/appbar/build_sliver_appbar.dart';
 import 'package:elresala/features/quran/presentation/controller/quran_controller.dart';
 import 'package:elresala/features/quran/presentation/widgets/aya_container.dart';
 import 'package:elresala/features/quran/presentation/widgets/basmala_image.dart';
-import 'package:elresala/features/quran/presentation/widgets/telawa_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -47,7 +46,7 @@ class SurahScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: .1),
-          const TelawaWidget(),
+          // const TelawaWidget(),
         ],
       ),
     );
