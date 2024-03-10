@@ -2,7 +2,6 @@ import 'package:elresala/features/muslim/domain/entities/muslim_entity.dart';
 
 import 'muslim_model_sub.dart';
 
-//Model for NewMuslimCourse , NewMuslimQuran json
 
 class MuslimModel extends Muslim {
   MuslimModel({
@@ -24,7 +23,6 @@ class MuslimModel extends Muslim {
       );
 }
 
-    //Model for NewMuslimLife , Moomalt ,Ayman, Serah, json
 
 class MuslimCoursesModel extends Muslim{
   MuslimCoursesModel({

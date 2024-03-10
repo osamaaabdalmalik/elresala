@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:elresala/features/muslim/domain/entities/muslim_entity.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:logger/logger.dart';
@@ -12,7 +13,7 @@ class GetCoursesAymanUseCase {
 
   GetCoursesAymanUseCase(this.muslimRepo);
 
-  Future<Either<Failure, List<MuslimCoursesModel>>> call() async {
+  Future<Either<Failure, List<Muslim>>> call() async {
     Get.find<Logger>().i("Call GetMuslimsUseCase CoursesAyman");
     return await muslimRepo.getCoursesOfAyman();
   }

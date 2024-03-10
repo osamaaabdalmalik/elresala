@@ -12,11 +12,11 @@ import 'package:elresala/features/hadith/presentation/screens/sub_category_scree
 import 'package:elresala/features/main/main_bindings.dart';
 import 'package:elresala/features/main/presentation/screens/main_screen.dart';
 import 'package:elresala/features/muslim/muslim_bindings.dart';
-import 'package:elresala/features/muslim/presentation/screens/lissonhome.dart';
 import 'package:elresala/features/muslim/presentation/screens/muslim_courses_screen.dart';
 import 'package:elresala/features/muslim/presentation/screens/muslim_courses_sub.dart';
-import 'package:elresala/features/muslim/presentation/screens/muslim_lissons.dart';
-import 'package:elresala/features/muslim/presentation/screens/view_muslim.dart';
+import 'package:elresala/features/muslim/presentation/screens/muslim_lessons_screen.dart';
+import 'package:elresala/features/muslim/presentation/screens/muslim_lessons_sub.dart';
+import 'package:elresala/features/muslim/presentation/screens/muslim_view.dart';
 import 'package:elresala/features/non_muslim/non_muslim_bindings.dart';
 import 'package:elresala/features/non_muslim/presentation/screens/non_muslim_screen.dart';
 import 'package:elresala/features/quran/presentation/screens/quran_screen.dart';
