@@ -19,6 +19,7 @@ import 'package:elresala/features/quran/presentation/screens/quran_screen.dart';
 import 'package:elresala/features/quran/presentation/screens/surah_screen.dart';
 import 'package:elresala/features/quran/presentation/screens/telawa_screen.dart';
 import 'package:elresala/features/quran/quran_bindings.dart';
+import 'package:elresala/features/sites/presentation/screen/the_key_to_islam_screen.dart';
 import 'package:get/get.dart';
 
 import '../../features/hadith/presentation/screens/content_hadith_screen.dart';
@@ -44,6 +45,7 @@ import '../../features/sites/bindings/mohammad_messanger_banding.dart';
 import '../../features/sites/bindings/rasuluallah_banding.dart';
 import '../../features/sites/bindings/romance_banding.dart';
 import '../../features/sites/bindings/terminology_banding.dart';
+import '../../features/sites/bindings/the_key_to_islam_binding.dart';
 import '../../features/sites/bindings/women_banding.dart';
 import '../../features/sites/presentation/screen/beginning_screen.dart';
 import '../../features/sites/presentation/screen/bidaa_in_islam_screen.dart';
@@ -113,6 +115,7 @@ abstract class AppPagesRoutes {
   static const String firstSteps = "/first_steps_screen";
   static const String bidaaInIslam = "/bidaa_in_islam_screen";
   static const String terminology = "/terminology_screen";
+  static const String thekeytoislam = "/the_key_to_islam";
 
   static List<GetPage<dynamic>> appPages = [
     GetPage(
@@ -147,6 +150,13 @@ abstract class AppPagesRoutes {
       name: advanced_learning,
       page: () => const AdvancedSites(),
       binding: Advanced_LearningBindings(),
+      transition: Transition.cupertino,
+    ),
+
+    GetPage(
+      name: thekeytoislam,
+      page: () => const TheKeyToIslamScreen(),
+      binding: TheKeyToIslamBindings(),
       transition: Transition.cupertino,
     ),
     GetPage(
