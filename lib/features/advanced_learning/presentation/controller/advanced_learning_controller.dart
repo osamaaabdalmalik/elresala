@@ -157,7 +157,7 @@ class Advanced_LearningController extends GetxController {
       {
         "title": "The key to islam_2",
         "description": "Learn more about islam",
-        "targetScreen": AppPagesRoutes.quranScreen,
+        "targetScreen": AppPagesRoutes.thekeytoislam2,
       },
       {
         "title": "Saber el islam",

@@ -39,7 +39,7 @@ class AppBarCustom {
               ),
             ),
       title: Text(
-        title,
+        title.trim(),
         style: const TextStyle(
             color: AppColors.kGoldenColor, fontWeight: FontWeight.bold),
       ),

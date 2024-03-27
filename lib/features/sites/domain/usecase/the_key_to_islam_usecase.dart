@@ -11,7 +11,7 @@ class TheKeyToIslamUseCase {
     this.theKeyToIslamRepo,
   );
   Future<Either<Failure, List<TheKeyToIslamfirst>>> call() async {
-    Get.find<Logger>().i("Call IslamWebUseCase");
+    Get.find<Logger>().i("Call TheKeyToIslamfirstUseCase");
     return theKeyToIslamRepo.getArtical();
   }
 }

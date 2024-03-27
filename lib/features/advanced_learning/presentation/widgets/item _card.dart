@@ -29,6 +29,7 @@ class Item_Card extends StatelessWidget {
                 ),
                 title: Text(
                   titleSite,
+                  maxLines: 1,
                   style: Styles.textStyle18Godlen,
                 ),
                 subtitle: Text(
